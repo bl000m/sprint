@@ -3,7 +3,7 @@ class CreateTasks < ActiveRecord::Migration[6.1]
     create_table :tasks do |t|
       t.integer :trello_id
       t.string :name
-      t.time :estimated_time
+      t.integer :estimated_time
       t.references :user, null: false, foreign_key: true
       t.references :project, null: false, foreign_key: true
 

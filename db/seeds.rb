@@ -1,7 +1,32 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Task.destroy_all
+Project.destroy_all
+User.destroy_all
+
+alexandra = User.create!(email: "task@task.com", password: "tasktask", name: 'Alexandra')
+new_app = Project.create!(user: alexandra, name: "New App")
+puts new_app.name
+
+Task.create!(
+  name: "Set up new app",
+  estimated_time: 30,
+  user: alexandra,
+  project: new_app,
+  # trello_id: 1
+)
+
+
+Task.create!(
+  name: "Feature 1",
+  estimated_time: 45,
+  user: alexandra,
+  project: new_app,
+  # trello_id: 2
+)
+
+Task.create!(
+  name: "Feature 2",
+  estimated_time: 20,
+  user: alexandra,
+  project: new_app,
+  # trello_id: 3
+)
