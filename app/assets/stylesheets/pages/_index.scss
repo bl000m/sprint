@@ -22,6 +22,8 @@ h1 {
 }
 
 // AGENDA
+
+// timeline
 .agenda-container {
   padding-top: 20px;
   width: 100%;
@@ -39,4 +41,23 @@ h1 {
 .timeline span {
   color: #BFABAB;
   font-size: 20px;
+}
+
+// table grid
+.table {
+  padding-top: 20px;
+  width: 90%;
+  height: 600px;
+  border-bottom: 2px solid #BFABAB;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+}
+
+.inner-table {
+  padding-top: 40px;
+  padding-top: 40px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
