@@ -1,2 +1,42 @@
 // Import page-specific CSS files here.
 @import "home";
+
+// GENERAL
+.container {
+  margin-top: 2vh;
+}
+
+h1 {
+  padding-top: 60px;
+  font-weight: 700;
+}
+
+// CARDS
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  place-items: center;
+  grid-gap: 30px;
+  width: 100%;
+  padding-top: 20px;
+}
+
+// AGENDA
+.agenda-container {
+  padding-top: 20px;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  border-bottom: 2px solid #BFABAB;
+}
+
+.timeline span {
+  color: #BFABAB;
+  font-size: 20px;
+}
