@@ -1,0 +1,18 @@
+<div class="card-wrapper">
+  <div class="card-top">
+  <% @data.map{|d| d['name']} .each do |name| %>
+    <h4><%= name %>
+  <% end %></h4>
+    <%= image_tag "play.png", class: "top-card-pic"%>
+  </div>
+  <div class="card-bottom">
+    <div class="card-bottom-info">
+      <div class="estimated-time">
+        <span>45min</span>
+      </div>
+      <div class="details">
+        <span>Details <%= image_tag "bouton-jouer.png", class: "card-bottom-toggle"%></span>
+      </div>
+    </div>
+  </div>
+</div>

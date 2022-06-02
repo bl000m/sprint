@@ -1,5 +1,30 @@
-<ul>
-  <% @data.map{|d| d['name']} .each do |name| %>
-    <li><%= name %></li>
-  <% end %>
-</ul>
+<div class="container">
+  <h1>Your tasks</h1>
+  <div class="card-container">
+    <%= render 'shared/task_card_perso'%>
+    <%= render 'shared/task_card_perso'%>
+    <%= render 'shared/task_card_perso'%>
+  </div>
+  <h1>Your day</h1>
+  <div class="agenda-container">
+    <div class="timeline">
+      <span>9</span>
+      <span>10</span>
+      <span>11</span>
+      <span>12</span>
+      <span>13</span>
+      <span>14</span>
+      <span>15</span>
+      <span>16</span>
+      <span>17</span>
+      <span>18</span>
+    </div>
+    <div class="table">
+      <div class="inner-table">
+        <%=render 'shared/table_card'%>
+        <%=render 'shared/table_card'%>
+        <%=render 'shared/table_card'%>
+      </div>
+    </div>
+  </div>
+</div>
