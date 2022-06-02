@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'projects/new'
   devise_for :users
   root to: 'tasks#index'
   resources :tasks, only: :show do
