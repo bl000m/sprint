@@ -17,6 +17,16 @@
   perspective-origin: top;
 }
 
+.bottom-card-container {
+  display: none;
+  transition: 0.8s ease-in-out;
+}
+
+.open-bottom-card-container {
+  display: initial;
+  transition: 0.8s ease-in-out;
+}
+
 .anim-card {
   transform: rotateY(180deg);
 }
@@ -57,8 +67,12 @@
 }
 
 // bouton play de la top card
-.top-card-pic {
-  height: 60px;
+.card-top button {
+  background: #FBBE3E;
+  border: none;
+  border-radius: 20px;
+  height: 30px;
+  width: 120px;
 }
 
 
