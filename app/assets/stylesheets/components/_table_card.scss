@@ -1,61 +1,136 @@
 // GENERAL
 .table-card-wrapper {
-  // background-color: #fafafa;
-  width: 400px;
+  background: transparent;
+  border-radius: 20px;
+  width: 300px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 4px 4px rgba(0,0,0,0.23);
+}
+
+.feedback-card-front {
+  background: #FBBE3E;
+  margin-top: 30px;
   display: flex;
+  width: 300px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 4px 4px rgba(0,0,0,0.23);
+}
+
+.feedback-card-front button {
+  border: none;
+  background: none;
+}
+
+.open-feed-form {
+  transform: rotateY(180deg);
+  width: 400px;
+  height: 400px;
+}
+
+.front-card, .back-card {
+  position: absolute;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+// Devant de la card
+.table-card-wrapper .front-card {
+  width: 100%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+
 }
 
 // LEFT PART
-.table-card-wrapper .table-card-left {
-  background: #00C2FF;
-  width: 250px;
-  height: 100%;
-  border-top-left-radius: 50px;
-  border-bottom-left-radius: 50px;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-}
+
 
 .timer-pic{
   height: 30px;
 }
 
-.table-card-left span {
-  padding-left: 10px;
-}
-
 // RIGHT PART
-.table-card-wrapper .table-card-right {
-  background: #FBBE3E;
-  width: 150px;
-  height: 100%;
-  border-top-right-radius: 50px;
-  border-bottom-right-radius: 50px;
-  display: flex;
-  justify-content: right;
-  align-items: center;
-}
+
 
 .pause-pic {
-  height: 30px;
+  height: 16px;
+  margin-left: 5px;
   transform: rotate(90deg);
 }
 
 .table-card-right span {
-  font-size: 14px;
+  font-size: 18px;
   padding-right: 5px;
+}
+
+.table-card-right button {
+  width: 150px;
+  height: 40px;
+  font-size: 14px;
+  border: none;
+  background: none;
 }
 
 // feedback form
 .feedback-form {
-  background: green;
+  // background: green;
+  width: 100%;
+  height: 100%;
+  border-radius: 50Px;
   transition: 0.4s ease-in-out;
-  display: none;
+}
+
+.top-back-card {
+  background: #FBBE3E;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+.top-back-card h3 {
+  font-size: 20px;
+  color: black;
+  font-weight: 500;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
+.top-back-card button {
+  background: none;
+  color: black;
+  font-size: 30px;
+  font-weight: 500;
+  border: none;
+  padding-right: 20px;
+}
+
+.bottom-back-card {
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .open-feed-form {
-  display: initial;
+  transform: rotateY(180deg);
+}
+
+.table-card-wrapper .back-card {
+  transform: rotateY(180deg);
+  background-color: transparent;
+  border-radius: 20px;
+  padding: 0;
 }
