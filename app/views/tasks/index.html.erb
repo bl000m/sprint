@@ -1,10 +1,11 @@
 
-<div class="container">
+<div class="container" data-controller="mission">
   <h1>Your tasks</h1>
   <div class="card-container">
-    <%= render 'shared/task_card'%>
-    <%= render 'shared/task_card'%>
-    <%= render 'shared/task_card'%>
+    <% @tasks.each do |task| %>
+      <%= render 'shared/task_card', task: task %>
+    <% end %>
+
   </div>
   <h1>Your day</h1>
   <div class="agenda-container">
@@ -21,10 +22,10 @@
       <span>18</span>
     </div>
     <div class="table">
-      <div class="inner-table">
-        <%=render 'shared/table_card'%>
-        <%=render 'shared/table_card'%>
-        <%=render 'shared/table_card'%>
+      <div class="inner-table" data-mission-target="missionList">
+        <% @missions.each do |mission| %>
+          <%= render 'shared/table_card', mission: mission %>
+        <% end %>
       </div>
     </div>
   </div>

@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'tasks#index'
-  resources :tasks, only: :show do
-    resources :reviews, only: [:create, :show, :index]
+  resources :tasks, only: [:show, :index] do
+    resources :reviews, only: [:create, :index]
+    resources :missions, only: [:create]
   end
+  resources :reviews, only: [:show]
+  resources :missions, only: [:show]
   get '/users/connect_trello_account', to: 'users#connect_trello_account'
   get '/users/connect_trello_account_callback', to: 'users#connect_trello_account_callback'
 
