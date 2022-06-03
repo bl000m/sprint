@@ -2,10 +2,13 @@
 </span>
 
 
-<%# faire un controller js
-  - passer la value qui est le created_at de la mission en value stimulus
-  - dans la method connect du controller stimulus
-    - faire un setInterval
-      - faire une micro operation pour trouver le nombre de seconde entre time now
-          et la value passer au controller stimulus
-      - injecter cette valeur dans le dom en faisant un this.element.innerHTML = maValeurCalculée %>
+<div class="timer-card-wrapper" data-controller="feedback" data-feedback-target="feed" >
+  <div class="timer-card-content">
+    <span>01:28:46</span>
+  </div>
+  <div class="timer-play">
+    <button><%= image_tag "play.png", class: "timer-pic"%></button>
+  </div>
+</div>
+
+
