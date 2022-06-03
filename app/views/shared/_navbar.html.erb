@@ -3,6 +3,9 @@
     <div class="nav-logo">
       <%= image_tag "sprint.png", class: "logo"%>
       <span>SPRINT</span>
+
+      <%= link_to "ajouter un projet", new_project_path %>
+
     </div>
     <div class="nav-menu">
       <span><%= link_to 'Connect with Trello', users_connect_trello_account_path %></span>

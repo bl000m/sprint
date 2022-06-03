@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   def index
-    @tasks = Task.all
+    @tasks = current_user.tasks
   end
 
   def show
@@ -8,15 +8,18 @@ class TasksController < ApplicationController
     @review = Review.new
   end
 
-  def create
-  @tasks = Task.new(task_params) #=>
-    if @task.save
-      redirect_to new_projects_url
-    else
-      render "projects/new"
-    end
+  #ici create cards
+  # def create
+  #   @task = Task.new(task_params)
+  #   if @task.save
+  #     redirect_to new_projects_url
+  #   else
+  #     render "projects/new"
+  #   end
 
-    def task_params
-      params.require(:task).permit(:name, :user_id, :project_id, :done )
-    end
+  private
+
+  def task_params
+    params.require(:task).permit(:name, :desc, :trello_id_member )
+  end
 end

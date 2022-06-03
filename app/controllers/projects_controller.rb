@@ -2,16 +2,14 @@ require 'open-uri'
 
 class ProjectsController < ApplicationController
   def new
-    @project = Project.new
+    # @project = Project.new
   end
 
   def create
-    @projects = Project.new(project_params)
-    if @projects.save
-      redirect_to new_projects_url
-    else
-      render "projects/new"
-    end
+    @project = Project.new(project_params)
+    @project.user = current_user
+    @project.save!
+    redirect_to root_url
   end
 
   def new_boards
