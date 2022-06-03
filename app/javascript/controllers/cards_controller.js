@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "result" ]
+  static targets = [ "result", "cards" ]
   static values =  {
     itemId: String,
     token: String,
@@ -17,15 +17,17 @@ export default class extends Controller {
       let li = `<tr><th></th></tr>`
       data.forEach(item => {
         var cardName = item.name
-        li += `<p>${cardName}</p>`
+        // li += `<p>${cardName}</p>`
+        li += `<a href='http://localhost:3000/tasks'>${cardName}</a> <br>`
         this.element.innerHTML = li
+        // cardsTarget.innerHTML = li
       });
     })
   }
 
   //comment cacher les autres listes qui restent affichés?
 
-  // comment utiliser method post pour faire passer de TO DO à IN PROGRESS
+  // comment utiliser method post pour faire passer une cards de TO DO à IN PROGRESS sur Trello
   //quand une tache est selectionné et play est demarré
 
 

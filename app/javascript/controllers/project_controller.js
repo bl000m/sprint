@@ -7,18 +7,38 @@ export default class extends Controller {
     api: String
   }
 
+  stepBoards() {
+    fetch('/projects/new/boards')
+      .then(response => response.text())
+      .then(html => this.element.innerHTML = html)
+  }
+
+  selectBoard(e) {
+    console.log('je veux select une board')
+    console.log(e.currentTarget)
+    console.log(e.currentTarget.dataset.name)
+    console.log(e.currentTarget.dataset.id)
+    const name = e.currentTarget.dataset.name
+    const boardId = e.currentTarget.dataset.id
+    fetch(`/projects/new/form?name=${name}&board_id=${boardId}`)
+      .then(response => response.text())
+      .then(html => this.element.innerHTML = html)
+  }
+
   connect() {
-    fetch(`https://api.trello.com/1/members/me/boards?key=${this.apiValue}&token=${this.tokenValue}`)
-      .then(response => response.json())
-      .then(data => {
-        data.forEach(item => {
-          var board = item.name
-          var option = document.createElement("option");
-          option.value = board
-          option.text = board
-          this.boardTarget.add(option)
-        });
-      })
+    console.log('couazdzedcou')
+    this.stepBoards()
+    // fetch(`https://api.trello.com/1/members/me/boards?key=${this.apiValue}&token=${this.tokenValue}`)
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     data.forEach(item => {
+    //       var board = item.name
+    //       var option = document.createElement("option");
+    //       option.value = board
+    //       option.text = board
+    //       this.boardTarget.add(option)
+    //     });
+    //   })
   }
 
   trello(event) {

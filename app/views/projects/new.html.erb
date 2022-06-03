@@ -1,10 +1,11 @@
-<h1>Projects</h1>
 <div data-controller="project"
   data-project-token-value=<%=current_user.token%>
   data-project-api-value=<%=ENV.fetch('TRELLO_API_KEY')%>
   >
 
-  <select  data-project-target="board" type="text">
+  Chargement ...
+
+  <%# <select  data-project-target="board" type="text">
 
   </select>
 
@@ -12,7 +13,5 @@
     Select a Trello Board
   </button>
   <div  data-project-target="list">
-  </div>
-  <%# <span>
-  </span> %>
+  </div> %>
 </div>
