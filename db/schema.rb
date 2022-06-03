@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_02_095719) do
+ActiveRecord::Schema.define(version: 2022_06_02_153127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,9 @@ ActiveRecord::Schema.define(version: 2022_06_02_095719) do
     t.bigint "task_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
     t.index ["task_id"], name: "index_missions_on_task_id"
+    t.index ["user_id"], name: "index_missions_on_user_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -45,7 +47,7 @@ ActiveRecord::Schema.define(version: 2022_06_02_095719) do
   create_table "tasks", force: :cascade do |t|
     t.integer "trello_id"
     t.string "name"
-    t.integer "estimated_time"
+    t.time "estimated_time"
     t.bigint "user_id", null: false
     t.bigint "project_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -72,6 +74,7 @@ ActiveRecord::Schema.define(version: 2022_06_02_095719) do
   end
 
   add_foreign_key "missions", "tasks"
+  add_foreign_key "missions", "users"
   add_foreign_key "projects", "users"
   add_foreign_key "reviews", "tasks"
   add_foreign_key "tasks", "projects"
