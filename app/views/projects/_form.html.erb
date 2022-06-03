@@ -5,8 +5,10 @@
 <%= simple_form_for(project) do |f| %>
   <%= f.input :name, as: :hidden %>
   <%= f.input :trello_board_id, as: :hidden %>
-  <p>Choissisez votre liste des trcus à faire</p>
+  <p>Choose your TO DO list</p>
   <%= f.select :trello_list_id, trello_lists.map {|v| [v['name'], v['id']]} %>
+  <p>Choose your DONE list</p>
+  <%= f.select :trello_done_list_id, trello_lists.map {|v| [v['name'], v['id']]} %>
   <%#= f.select :trello_board_id, trello_lists.map {|v| [v['name'], v['id']]} %>
   <%# <p>Choissisez votre liste quand c'est fini</p> %>
   <%= f.submit %>

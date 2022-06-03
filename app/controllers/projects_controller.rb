@@ -2,6 +2,16 @@ require 'open-uri'
 
 class ProjectsController < ApplicationController
   def new
+    @project = Project.new
+  end
+
+  def create
+    @projects = Project.new(project_params)
+    if @projects.save
+      redirect_to new_projects_url
+    else
+      render "projects/new"
+    end
   end
 
   def new_boards
@@ -31,7 +41,9 @@ class ProjectsController < ApplicationController
   end
 end
 
-
+  def project_params
+    params.require(:project).permit(:name, :trello_board_id, :trello_list_id, :trello_done_list_id, :user_id )
+  end
 
 # <%
 #   trello_lists = [
