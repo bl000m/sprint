@@ -1,18 +1,35 @@
-<div class="card-wrapper" data-controller="timer">
+
+<div class="flip-card" data-controller="modal" data-modal-target="card">
+<div class="card-front">
   <div class="card-top">
     <h4>TASK</h4>
     <div data-action="click->mission#createMission" data-id="<%= task.id%>">
       <%= image_tag "play.png", class: "top-card-pic" %>
     </div>
   </div>
+  </div>
   <div class="card-bottom">
-    <div class="card-bottom-info">
       <div class="estimated-time">
-        <span>45min</span>
+          <span>45min</span>
       </div>
       <div class="details">
-        <span>Details <%= image_tag "bouton-jouer.png", class: "card-bottom-toggle"%></span>
+      <button class="flip-card-btn-turn-to-back" data-action="click->modal#flip">Details <%= image_tag "bouton-jouer.png", class: "card-bottom-toggle"%></button>
       </div>
     </div>
   </div>
+
+  <div class="card-back">
+    <div class="card-back-top">
+      <h3>Details</h3>
+      <button class="flip-card-btn-turn-to-front" data-action="click->modal#flip">&times;</button>
+    </div>
+    <div class="card-back-text">
+      <div class="details-text">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis id dolorum asperiores earum aliquid obcaecati
+        ea doloribus labore adipisci itaque quod tenetur, excepturi omnis laboriosam voluptatem dolorem sed? Tempore, labore.
+        </p>
+      </div>
+    </div>
+  </div>
+
 </div>

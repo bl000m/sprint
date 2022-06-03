@@ -1,19 +1,42 @@
-// taille et position de la card, de son top et de son bottom
-.card-wrapper {
+.flip-card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.86,0,0.07,1);
+  background: transparent;
+  border-radius: 20px;
   width: 300px;
   height: 300px;
-  background-color: #fafafa;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: transparent;
   border-radius: 20px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 4px 4px rgba(0,0,0,0.23);
-  display: flex;
-  flex-direction: column;
-  // justify-content: center;
-  align-items: center;
+  position: relative;
+  perspective: 2000px;
+  perspective-origin: top;
 }
 
-// ELEMENTS HAUT DE LA CARD
+.anim-card {
+  transform: rotateY(180deg);
+}
 
-// taille et position du card front
+.card-front, .card-back {
+  position: absolute;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  height: 100%;
+  width: 100%;
+}
+// // DEVANT DE LA CARD
+// // // ELEMENTS HAUT DE LA CARD
+
+// // taille et position du card front
+.card-front {
+  background-color: transparent;
+  border-radius: 20px;
+}
+
 .card-top {
   background-color: #00C2FF78;
   width: 100%;
@@ -26,7 +49,7 @@
   border-top-right-radius: 20px;
 }
 
-// titre de la card
+// // titre de la card
 .card-top h4 {
   color: #fafafa;
   font-weight: 700;
@@ -39,25 +62,25 @@
 }
 
 
-// ELEMENTS BAS DE LA CARD
+// // ELEMENTS BAS DE LA CARD
 
 // taille et position du bas de la card
 .card-bottom {
   width: 100%;
   height: 100px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
-// position des elements dans le card bottom
+// // position des elements dans le card bottom
 .card-bottom-info {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
 }
 
-// span estimated time
+// // span estimated time
 .estimated-time {
   background-color: #201CEC78;
   height: 40px;
@@ -68,7 +91,7 @@
   border-radius: 20px;
 }
 
-// span details
+// // details
 .details {
   background-color: #1CECD3F5;
   height: 40px;
@@ -79,15 +102,77 @@
   border-radius: 20px;
 }
 
-// texte card bottom
-.estimated-time span, .details span {
+// // texte card bottom
+.estimated-time span {
   color: #fafafa;
   font-weight: 500;
   font-size: 18px;
 }
 
-// boutton toggle de la bottom card
+// // boutton toggle de la bottom card
 .card-bottom-toggle {
   transform: rotate(90deg);
   width: 20px;
+}
+
+// bouton flip de la card
+.flip-card-btn-turn-to-back {
+  background-color: transparent;
+  border: none;
+  color: #fafafa;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+// // ARRIERE DE LA CARD
+.card-back {
+  transform: rotateY(180deg);
+  background-color: transparent;
+  border-radius: 20px;
+}
+
+// haut de l'arriere de la carte
+.card-back-top {
+  background: #00C2FF78;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.card-back-top h3 {
+  font-size: 30px;
+  color: #fafafa;
+  font-weight: 500;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
+.flip-card-btn-turn-to-front {
+  background: none;
+  color: #fafafa;
+  font-size: 30px;
+  font-weight: 500;
+  border: none;
+  padding-right: 20px;
+}
+
+// bas de l'arriere de la carte
+.card-back-text {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.details-text {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
