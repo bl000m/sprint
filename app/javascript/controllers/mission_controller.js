@@ -1,10 +1,11 @@
 import { Controller } from "stimulus"
 import { csrfToken } from "@rails/ujs";
+import { end } from "@popperjs/core";
 
 export default class extends Controller {
   static targets = [ "missionList"]
   connect() {
-    console.log("connected")
+    console.log("connected", this)
     console.log(this.missionListTarget)
   }
 
@@ -19,6 +20,8 @@ export default class extends Controller {
         }
       }).then(response => response.text())
         .then((data) => {
+          console.log('toto')
+          console.log(this.missionListTarget)
           this.missionListTarget.insertAdjacentHTML("beforeend", data)
           console.log(data)
         })

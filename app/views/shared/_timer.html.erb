@@ -1,2 +1,11 @@
+<span data-controller="timer" data-timer-start-value="<%= mission.created_at %>">
+</span>
 
-<%= timer = (Time.now - mission.created_at) / 60 %>
+
+<%# faire un controller js
+  - passer la value qui est le created_at de la mission en value stimulus
+  - dans la method connect du controller stimulus
+    - faire un setInterval
+      - faire une micro operation pour trouver le nombre de seconde entre time now
+          et la value passer au controller stimulus
+      - injecter cette valeur dans le dom en faisant un this.element.innerHTML = maValeurCalculée %>
