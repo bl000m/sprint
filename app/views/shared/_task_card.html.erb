@@ -1,11 +1,14 @@
-<div class="flip-card" data-controller="modal" data-modal-target="card">
 
-  <div class="card-front">
-    <div class="card-top">
-      <h4>TASK</h4>
-      <%= image_tag "play.png", class: "top-card-pic"%>
+<div class="flip-card" data-controller="modal" data-modal-target="card">
+<div class="card-front">
+  <div class="card-top">
+    <h4>TASK</h4>
+    <div data-action="click->mission#createMission" data-id="<%= task.id%>">
+      <%= image_tag "play.png", class: "top-card-pic" %>
     </div>
-    <div class="card-bottom">
+  </div>
+  </div>
+  <div class="card-bottom">
       <div class="estimated-time">
           <span>45min</span>
       </div>
