@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  resources :projects, only: [:new, :create] do
+    get 'new/boards', to: 'projects#new_boards', on: :collection
+    get 'new/form', to: 'projects#form', on: :collection
+  end
   devise_for :users
   root to: 'tasks#index'
-  resources :tasks, only: :show do
+  resources :tasks, only: [ :index, :show, :create ] do
     resources :reviews, only: [:create, :show, :index]
   end
   get '/users/connect_trello_account', to: 'users#connect_trello_account'
