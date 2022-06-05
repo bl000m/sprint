@@ -1,0 +1,12 @@
+<h1>Choissisez un project</h1>
+
+<ul>
+  <% boards.each do |board| %>
+    <li data-action="click->project#selectBoard"
+        data-name="<%= board['name'] %>"
+        data-id="<%= board['id'] %>"
+        >
+      <%= board['name'] %> - <%= board['id'] %>
+    </li>
+  <% end %>
+</ul>
