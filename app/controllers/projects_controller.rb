@@ -42,13 +42,3 @@ end
   def project_params
     params.require(:project).permit(:name, :trello_board_id, :trello_list_id, :trello_done_list_id, :user_id )
   end
-
-# <%
-#   trello_lists = [
-#     {"name" => "aaa", "id" => "zedfihb"},
-#     {"name" => "bbb", "id" => "zd"},
-#     {"name" => "ccc", "id" => "zdfzef"}
-#   ]
-# %>
-
-# <%= render 'form', project: Project.new(name: 'toto'), trello_lists: trello_lists %>
