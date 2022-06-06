@@ -2,6 +2,9 @@
 @import "home";
 
 // GENERAL
+body {
+  background: #fafafa;
+}
 .container {
   margin-top: 2vh;
 }
@@ -11,53 +14,68 @@ h1 {
   font-weight: 700;
 }
 
-// CARDS
+// tache en cours
+.current-task-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.current-task-infos {
+  width: 80%;
+}
+
+// liste des taches
 .card-container {
-  // display: grid;
-  // grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  // place-items: center;
-  // grid-gap: 30px;
-  // width: 100%;
-  // padding-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.cards-list-container {
+  width: 80%;
 }
 
 // AGENDA
 
 // timeline
-.agenda-container {
-  padding-top: 20px;
-  width: 100%;
-  display: grid;
-  place-items: center;
-}
+// .agenda-container {
+//   padding-top: 20px;
+//   width: 100%;
+//   display: grid;
+//   place-items: center;
+// }
 
-.timeline {
-  display: flex;
-  justify-content: space-between;
-  width: 90%;
-  border-bottom: 2px solid #BFABAB;
-}
+// .timeline {
+//   display: flex;
+//   justify-content: space-between;
+//   width: 90%;
+//   border-bottom: 2px solid #BFABAB;
+// }
 
-.timeline span {
-  color: #BFABAB;
-  font-size: 20px;
-}
+// .timeline span {
+//   color: #BFABAB;
+//   font-size: 20px;
+// }
 
-// table grid
-.table {
-  padding-top: 20px;
-  width: 90%;
-  height: 600px;
-  border-bottom: 2px solid #BFABAB;
-  display: grid;
-  grid-template-columns: repeat(9, 1fr);
-}
+// // table grid
+// .table {
+//   padding-top: 20px;
+//   width: 90%;
+//   height: 600px;
+//   border-bottom: 2px solid #BFABAB;
+//   display: grid;
+//   grid-template-columns: repeat(9, 1fr);
+// }
 
-.inner-table {
-  padding-top: 40px;
-  padding-top: 40px;
+// .inner-table {
+//   padding-top: 40px;
+//   padding-top: 40px;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-around;
+// }

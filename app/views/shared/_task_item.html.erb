@@ -1,12 +1,33 @@
-<div class="mb-1"
-     style="background: #DDDDDD; width: 100%; display: flex"
+<div class="task-wrapper">
 
-     >
-  <p style="font-weight: bold"><%= task.name %></p>
-  -
-  <p style="flex-grow: 1"><%= task.desc %></p>
+  <div class="task-name">
+    <p>
+      <%= task.name %>
+    </p>
+  </div>
 
-  <span data-task-id="<%= task.id %>" data-action="click->tasks#startTask">
-    play
-  </span>
+  <div class="task-informations">
+
+    <div class="task-estimated-time">
+      <p>
+        1h30min
+      </p>
+    </div>
+
+    <div class="task-description">
+      <span>
+        Description
+      </span>
+    </div>
+
+    <div class="launch-task">
+      <span data-task-id="<%= task.id %>" data-action="click->tasks#startTask">
+        Launch task
+      </span>
+    </div>
+
+  </div>
+
 </div>
+
+<!--<%= task.desc %>-->
