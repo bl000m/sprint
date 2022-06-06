@@ -5,7 +5,7 @@
 
     <div style="background: #FFCCCC"
         <%= 'data-controller="timer"'.html_safe unless mission.end_at %>
-        data-timer-previous-time-value="<%= mission.task.total_time_of_terminated_missions %>"
+        data-timer-previous-time-value="<%= mission.task.total_time_of_terminated_missions.to_i %>"
         data-timer-start-value="<%= mission.created_at %>">
 
         <%= mission.task.total_time_of_terminated_missions %>
