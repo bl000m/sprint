@@ -7,6 +7,7 @@ export default class extends Controller {
   }
 
   connect() {
+
     this.myInterval = setInterval(this.myTimer.bind(this), 1000)
     console.log('ici')
     console.log(this.previousTimeValue)
