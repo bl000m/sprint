@@ -18,8 +18,10 @@ class UsersController < ApplicationController
   def connect_trello_account_callback
     oauth_verifier = params[:oauth_verifier]
     res = request_token.get_access_token(oauth_verifier: oauth_verifier)
-    current_user.update(token: res.token, secret: res.secret, trello_id: trello_user_id)
-    redirect_to users_boards_path
+    @token = res.token
+    @secret = res.secret
+    current_user.update(token: @token, secret: @secret, trello_id: trello_user_id)
+    redirect_to root_path
   end
 
   def boards
@@ -47,13 +49,16 @@ class UsersController < ApplicationController
   end
 
   def trello_user_id
-    url = URI("https://api.trello.com/1/members/me?key=#{ENV['TRELLO_API_KEY']}&token=#{current_user.token}")
+    url = URI("https://api.trello.com/1/members/me?key=#{ENV['TRELLO_API_KEY']}&token=#{@token}")
+    ap url
     https = Net::HTTP.new(url.host, url.port)
     https.use_ssl = true
 
     request = Net::HTTP::Get.new(url)
     response = https.request(request)
-    data = JSON.parse(response.read_body)
+    json = response.read_body
+    ap json
+    data = JSON.parse(json)
     data["id"]
   end
 end

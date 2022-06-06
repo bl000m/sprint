@@ -1,15 +1,39 @@
 <div data-tasks-target="currentMission">
   <% if mission %>
 
+    <h2><%= mission.task.name %></h2>
 
-    <div style="background: #FFCCCC" data-controller="timer" data-timer-start-value="<%= mission.created_at %>">
+    <div style="background: #FFCCCC"
+        <%= 'data-controller="timer"'.html_safe unless mission.end_at %>
+        data-timer-previous-time-value="<%= mission.task.total_time_of_terminated_missions %>"
+        data-timer-start-value="<%= mission.created_at %>">
+
+        <%= mission.task.total_time_of_terminated_missions %>
     </div>
+
+    time avant: <%= mission.task.total_time_of_terminated_missions %>
+
+
+    <%= (ap mission.task.missions.pluck(:created_at, :end_at), index: false).html_safe %>
+
+    <hr>
 
     <%= (ap mission).html_safe %>
 
     <%= (ap mission.task).html_safe %>
 
+    <% if mission.end_at %>
+      <button data-task-id="<%= mission.task_id %>" data-action="click->tasks#startTask">
+        Play
+      </button>
+    <% else %>
+      <button data-action="click->tasks#pause"> Pause </button>
+    <% end %>
+
   <% else %>
     Pas de mission en cours
+
   <% end %>
+
+
 </div>

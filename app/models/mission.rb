@@ -4,6 +4,10 @@ class Mission < ApplicationRecord
 
   after_create :stop_others
 
+  def pause!
+    update(end_at: Time.now)
+  end
+
   private
 
   def stop_others

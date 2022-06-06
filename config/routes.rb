@@ -10,7 +10,11 @@ Rails.application.routes.draw do
     resources :missions, only: :create
   end
   resources :reviews, only: [:show]
-  resources :missions, only: [:show]
+  resources :missions, only: [:show] do
+    collection do
+      post :pause
+    end
+  end
   get '/users/connect_trello_account', to: 'users#connect_trello_account'
   get '/users/connect_trello_account_callback', to: 'users#connect_trello_account_callback'
 
