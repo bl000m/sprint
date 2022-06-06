@@ -10,7 +10,7 @@ data-controller="tasks">
   <h1>Your tasks</h1>
   <div class="card-container">
     <% @tasks.each do |task| %>
-      <%= render 'shared/task_item', task: task%>
+      <%= render 'shared/task_item', task: task %>
       <%#= render 'shared/task_card', task: task%>
     <% end %>
   </div>

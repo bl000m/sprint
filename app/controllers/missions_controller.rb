@@ -20,6 +20,11 @@ class MissionsController < ApplicationController
     end
   end
 
+  def pause
+    current_mission = current_user.current_mission
+    current_mission&.pause!
+    render partial: "missions/current", locals: { mission: (current_mission || current_user.missions.last )}, formats: [:html]
+  end
 
   def show
     @task = @mission.task

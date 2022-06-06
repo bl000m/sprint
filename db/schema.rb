@@ -10,18 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_03_143837) do
+ActiveRecord::Schema.define(version: 2022_06_06_130054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "missions", force: :cascade do |t|
-    t.time "start_at"
-    t.time "end_at"
+    t.datetime "start_at"
+    t.datetime "end_at"
     t.bigint "task_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
+    t.time "total_time"
     t.index ["task_id"], name: "index_missions_on_task_id"
     t.index ["user_id"], name: "index_missions_on_user_id"
   end
