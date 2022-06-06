@@ -13,7 +13,7 @@ class MissionsController < ApplicationController
     respond_to do |format|
       if @mission.save
         format.html { redirect_to tasks_path(@mission.task) }
-        format.text { render partial: "shared/table_card", locals: { mission: @mission }, formats: [:html] }
+        format.text { render partial: "shared/timer", locals: { mission: @mission, task: @mission.task }, formats: [:html] }
       else
         format.html render 'tasks/index'
       end
@@ -23,7 +23,6 @@ class MissionsController < ApplicationController
 
   def show
     @task = @mission.task
-    # @mission = @task.mission
   end
 
   def index

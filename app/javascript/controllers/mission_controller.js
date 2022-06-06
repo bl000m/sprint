@@ -21,9 +21,10 @@ export default class extends Controller {
       }).then(response => response.text())
         .then((data) => {
           console.log('toto')
+          console.log(data)
           console.log(this.missionListTarget)
           this.missionListTarget.insertAdjacentHTML("beforeend", data)
-          console.log(data)
+          // console.log(data)
         })
   }
 }

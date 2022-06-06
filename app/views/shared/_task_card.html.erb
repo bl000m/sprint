@@ -32,7 +32,9 @@
   </div>
   <div class="bottom-card-container" data-launch-target="deploy">
     <div class="timer-card">
-      <%= render 'shared/timer'%>
+      <% if task.missions != []  %>
+        <%= render 'shared/timer', task: task, mission: task.missions.last%>
+      <% end %>
     </div>
     <div class="feedback-card">
       <%=render 'shared/table_card'%>

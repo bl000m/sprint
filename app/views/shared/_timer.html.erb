@@ -1,8 +1,23 @@
-<div class="timer-card-wrapper" data-controller="feedback" data-feedback-target="feed" >
+<div class="timer-card-wrapper" data-controller="timer"  data-controller="feedback" data-feedback-target="feed">
   <div class="timer-card-content">
-    <span>01:28:46</span>
+    <span  data-mission-target="missionList" ><%=%></span>
   </div>
-  <div class="timer-play">
-    <button><%= image_tag "play.png", class: "timer-pic"%></button>
+
+  <div class="timer-play" data-action="click->mission#createMission" data-id="<%= task.id %>"
+  data-timer-start-value="<%=mission.created_at%>"
+  >
+    <button data-action="click->timer#connect"><%= image_tag "play.png", class: "timer-pic"%></button>
   </div>
 </div>
+<%# data-id=<%= task.id%>
+<%#data-controller="timer" data-timer-start-value="<%=mission.created_at%>
+
+<%# 2 questions
+- dove era previsto d'inserire il target di Mission missionList=> mancante
+(=> la creazione Mission funziona=vedi Mission.all)
+- come rendere accessibile qui il parametro created_at di mission
+%>
+
+
+<%# data-timer-target="play" %>
+  <%# data-timer-start-value="<%#=Mission.find_by(task_id: task.id).created_at %>

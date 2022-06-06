@@ -1,11 +1,16 @@
 class TasksController < ApplicationController
   def index
     @tasks = current_user.tasks
+    @missions = current_user.missions
   end
 
   def show
     @task = Task.find(params[:id])
     @review = Review.new
+  end
+
+  def create
+    @mission = Mission.create(task: @task)
   end
 
   #ici create cards
@@ -17,9 +22,9 @@ class TasksController < ApplicationController
   #     render "projects/new"
   #   end
 
-  private
+  # private
 
-  def task_params
-    params.require(:task).permit(:name, :desc, :trello_id_member )
-  end
+  # def task_params
+  #   params.require(:task).permit(:name, :desc, :trello_id_member )
+  # end
 end
