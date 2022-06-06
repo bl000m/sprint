@@ -4,6 +4,24 @@ import { csrfToken } from "@rails/ujs";
 export default class extends Controller {
   static targets = [ "currentMission" ]
 
+
+  pause() {
+    console.log('pause')
+
+    fetch(`/missions/pause`,
+    {
+      method: "POST",
+      headers: {
+        "X-CSRF-Token": csrfToken(),
+        accept: "text/plain"
+      }
+    })
+    .then(response => response.text())
+    .then((data) => {
+      this.currentMissionTarget.outerHTML = data
+    })
+  }
+
   createMission(taskId) {
     console.log(`je crée ma mission avec comme id ${taskId}`)
     fetch(`/tasks/${taskId}/missions`,
@@ -24,12 +42,6 @@ export default class extends Controller {
 
   startTask(e) {
     this.createMission(e.currentTarget.dataset.taskId)
-  }
-
-  connect() {
-    console.log('je usi sla')
-
-    console.log(this.currentMissionTarget)
   }
 }
 
