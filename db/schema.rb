@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2022_06_03_143837) do
   create_table "tasks", force: :cascade do |t|
     t.string "trello_id"
     t.string "name"
-    t.integer "estimated_time"
+    t.time "estimated_time"
     t.bigint "project_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
