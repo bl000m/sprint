@@ -8,12 +8,12 @@ class MissionsController < ApplicationController
   def create
     @mission = Mission.new
     @mission.user = current_user
-    @mission.start_at = Time.now
+    @mission.start_at = DateTime.now
     @mission.task = Task.find(params[:task_id])
     respond_to do |format|
       if @mission.save
         format.html { redirect_to tasks_path(@mission.task) }
-        format.text { render partial: "shared/timer", locals: { mission: @mission, task: @mission.task }, formats: [:html] }
+        format.text { render partial: "missions/current", locals: { mission: @mission }, formats: [:html] }
       else
         format.html render 'tasks/index'
       end

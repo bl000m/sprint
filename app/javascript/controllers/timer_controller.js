@@ -5,13 +5,19 @@ export default class extends Controller {
     start: String
   }
 
-
   connect() {
-    setInterval(this.myTimer(), 1000)
-    console.log('connected to the Timer controller')
+    console.log('je suis dans connect')
+    this.myInterval = setInterval(this.myTimer.bind(this), 1000)
+    // console.log('connected to the Timer controller')
+  }
+
+  disconnect() {
+    console.log('je usis dans le disconnect')
+    clearInterval(this.myInterval)
   }
 
   myTimer() {
+    console.log('je suis dans myTimer')
     const date = Date.parse(new Date()) - Date.parse(this.startValue)
     this.element.innerHTML = this.msToTime(date)
   }

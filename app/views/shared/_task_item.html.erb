@@ -1,0 +1,12 @@
+<div class="mb-1"
+     style="background: #DDDDDD; width: 100%; display: flex"
+
+     >
+  <p style="font-weight: bold"><%= task.name %></p>
+  -
+  <p style="flex-grow: 1"><%= task.desc %></p>
+
+  <span data-task-id="<%= task.id %>" data-action="click->tasks#startTask">
+    play
+  </span>
+</div>

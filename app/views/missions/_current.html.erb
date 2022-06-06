@@ -1,0 +1,15 @@
+<div data-tasks-target="currentMission">
+  <% if mission %>
+
+
+    <div style="background: #FFCCCC" data-controller="timer" data-timer-start-value="<%= mission.created_at %>">
+    </div>
+
+    <%= (ap mission).html_safe %>
+
+    <%= (ap mission.task).html_safe %>
+
+  <% else %>
+    Pas de mission en cours
+  <% end %>
+</div>

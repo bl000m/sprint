@@ -3,8 +3,9 @@
     <span  data-mission-target="missionList" ><%=%></span>
   </div>
 
+  <%= mission.created_at.to_i %>
   <div class="timer-play" data-action="click->mission#createMission" data-id="<%= task.id %>"
-  data-timer-start-value="<%=mission.created_at%>"
+  data-timer-start-value="<%=mission.created_at.to_i %>"
   >
     <button data-action="click->timer#connect"><%= image_tag "play.png", class: "timer-pic"%></button>
   </div>
