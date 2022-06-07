@@ -1,10 +1,39 @@
 .feedback-form-content {
-  width: 400px;
-  height: 200px;
+  width: 500px;
+  height: 300px;
   border: 2px solid black;
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.feedback-form-button {
+  background-color: #84DFFC;
+  border-radius: 10px;
+}
+
+.feedback-form-input {
+  background-color: #FAFAFA;
+}
+
+.form-control {
+  background-color: #FAFAFA;
+  border-radius: 10px;
+  width: 400px;
+  height: 200px;
+  text-align:justify;
+}
+
+.review_feedback {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-label {
+  font-size: 20px;
+  font: bold;
 }
