@@ -1,0 +1,126 @@
+// disposition en deux colonnes
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+.row {
+  height: 200px;
+ border: 2px solid black;
+  border-radius: 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+// colonne de gauche
+.left {
+  width: 70%;
+  background: #fafafa;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+// affichage du nom de la tache et de sa description
+.current-task-heading-content {
+  padding-left: 20px;
+}
+
+.current-task-heading-content h2 {
+  font-size: 30px;
+  font-weight: bold;
+  font-style: normal;
+}
+
+.current-task-heading-content span {
+  font-weight: bold;
+}
+
+.current-task-heading-content p {
+  font-style: italic;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+// affichage du timer et du temps total
+.time-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.time-details .timer-display {
+  background: lightgray;
+  border-radius: 10px;
+  color: #fafafa;
+  width: 110px;
+  text-align: center;
+}
+
+.time-details .total-time {
+  background: #FBBE3E;
+  border-radius: 10px;
+  color: #fafafa;
+  width: 200px;
+  text-align: center;
+}
+
+// colonne de droite
+.right {
+  background: #fafafa;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+// bouton play/pause
+.right .play-button {
+  background: #1CECD3F5;
+  border: none;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+
+.right .pause-button {
+  background: #FBBE3E;
+  border: none;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+
+// centrage de l'image du bouton play
+.play-part {
+  margin-left: 5px;
+}
+
+// images du bouton play/pause
+.button-pictures {
+  width: 40px;
+  height: 40px;
+}
+
+// bouton feedback
+.right .feedback-button {
+  background: #201CEC78;
+  border: none;
+  width: 140px;
+  border-radius: 10px;
+  color: #fafafa;
+
+  &:hover {
+    background: #FBBE3E;
+  }
+}
