@@ -29,13 +29,24 @@ h1 {
 // liste des taches
 .card-container {
   padding-top: 20px;
-  padding-bottom: 40px;
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
 .cards-list-container {
+  width: 80%;
+}
+
+// taches effectuees
+.done-tasks-container {
+  padding-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.done-tasks-list {
   width: 80%;
 }
 
