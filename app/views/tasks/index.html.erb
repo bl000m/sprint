@@ -1,16 +1,19 @@
-<div class="container"
-data-controller="tasks">
+<div class="container" data-controller="tasks">
 
-  <div style="width: 100%; background: #CCCCCC">
-    <h3>current task</h3>
-
-    <%= render 'missions/current', mission: (current_user.current_mission || current_user.missions.last) %>
+  <h1>Your current task</h1>
+  <div class="current-task-container">
+    <div class="current-task-infos">
+      <%= render 'missions/current', mission: (current_user.current_mission || current_user.missions.last) %>
+    </div>
   </div>
 
-  <h1>Your tasks</h1>
+  <h1>Your task list</h1>
   <div class="card-container">
-    <% @tasks.each do |task| %>
-      <%= render 'shared/task_item', task: task %>
-      <%#= render 'shared/task_card', task: task%>
-    <% end %>
+    <div class="cards-list-container">
+      <% @tasks.each do |task| %>
+        <%= render 'shared/task_item', task: task %>
+        <%#= render 'shared/task_card', task: task%>
+      <% end %>
+    </div>
   </div>
+</div>
