@@ -1,9 +1,11 @@
 <div class="container" data-controller="tasks">
 
+  <% mission = (current_user.current_mission || current_user.missions.last) %>
+
   <h1>Current task</h1>
   <div class="current-task-container">
     <div class="current-task-infos">
-      <%= render 'missions/current', mission: (current_user.current_mission || current_user.missions.last) %>
+      <%= render 'missions/current', mission: mission %>
     </div>
   </div>
 
@@ -29,8 +31,9 @@
     </div>
   </div>
 
-  <div class="feedback-form-container">
-    <%= render "shared/feedback_form", review: @review, task: current_user.missions.last.task %>
-  </div>
-
+  <% if mission %>
+    <div class="feedback-form-container">
+      <%= render "shared/feedback_form", review: @review, task: current_user.missions.last.task %>
+    </div>
+  <% end %>
 </div>

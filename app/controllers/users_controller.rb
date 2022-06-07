@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   before_action :check_trello_token, only: :boards
 
   def connect_trello_account
-    trello_url_to_get_token = request_token.authorize_url
+    trello_url_to_get_token = request_token.authorize_url(scope: 'read,write,account', name: 'Sprint', expiration: 'never')
     redirect_to trello_url_to_get_token
   end
 
