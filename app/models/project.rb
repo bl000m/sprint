@@ -22,12 +22,14 @@ class Project < ApplicationRecord
 
     @trello_cards.each do |element|
       # TODO Je dois aller chercher le champs de la durée estimé pour ajouter un time estimé à ma card
+
       url_custom = "https://api.trello.com/1/boards/#{trello_board_id}/customFields?key=#{ENV['TRELLO_API_KEY']}&token=#{user.token}"
       json = URI.open(url_custom).read
       data = JSON.parse(json)
-    @task.trello_field_estimated_time_id =   data.name['estimated time']
+      @trello_estimated_field = data.map { |element| element.name['estimated time']}
+      @card_id = element['id']
 
-      @task = Task.create!(project: self, name: element['name'], desc: element['desc'], trello_id: element['id'], trello_member_id: element['idMembers'].first )
+      @task = Task.create!(project: self, name: element['name'], desc: element['desc'], trello_id: element['id'], trello_field_estimated_time_id: ,  trello_member_id: element['idMembers'].first )
     end
   end
 
