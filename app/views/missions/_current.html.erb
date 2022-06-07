@@ -25,8 +25,8 @@
             <span>total time: <%= mission.task.total_time_of_terminated_missions %></span>
           </div>
 
-          <div class="feedback-button">
-            <span>Add feedback</span>
+          <div class="feedback-button" data-controller="formModal">
+            <span data-action="click->formModal#openModal">Add feedback</span>
           </div>
 
         </div>

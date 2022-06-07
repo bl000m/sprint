@@ -1,4 +1,4 @@
-<div class="container" data-controller="tasks">
+<div class="container" data-controller="tasks" data-controller="formModal">
 
   <% mission = (current_user.current_mission || current_user.missions.last) %>
 
@@ -32,8 +32,9 @@
   </div>
 
   <% if mission %>
-    <div class="feedback-form-container">
+    <div class="feedback-form-container" data-form-modal-target="formModal">
       <%= render "shared/feedback_form", review: @review, task: current_user.missions.last.task %>
     </div>
   <% end %>
+
 </div>
