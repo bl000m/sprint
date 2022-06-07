@@ -25,6 +25,10 @@
             <span>total time: <%= mission.task.total_time_of_terminated_missions %></span>
           </div>
 
+          <div class="feedback-button">
+            <span>Add feedback</span>
+          </div>
+
         </div>
 
       </div>
@@ -38,7 +42,7 @@
           <button class="pause-button" data-action="click->tasks#pause"><%= image_tag "pause-64.png", class: "button-pictures" %> </button>
         <% end %>
 
-        <button class="feedback-button">Add feedback</button>
+        <button class="end-task-button">End Task</button>
       </div>
     </div>
   <% else %>

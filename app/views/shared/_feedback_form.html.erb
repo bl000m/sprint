@@ -1,0 +1,14 @@
+<%= simple_form_for [task, review] do |f| %>
+  <div class="feedback-form-content">
+
+    <div class="feedback-form-input">
+      <%= f.input :feedback, autofocus: true, placeholder: "Add your feedback here" %>
+    </div>
+
+    <div class="feedback-form-button">
+      <%= f.button :submit, "Submit", class: "feedback-form-button-text" %>
+    </div>
+
+  </div>
+
+<% end %>
