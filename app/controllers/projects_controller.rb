@@ -19,6 +19,7 @@ class ProjectsController < ApplicationController
 
   def form
     getTrelloLists
+    # getTrelloCustomFields
     project = Project.new(name: params[:name], trello_board_id: params[:board_id])
     render partial: 'form', locals: {project: project, trello_lists: @trello_lists}
   end

@@ -11,5 +11,8 @@
   <%= f.select :trello_done_list_id, trello_lists.map {|v| [v['name'], v['id']]} %>
   <%#= f.select :trello_board_id, trello_lists.map {|v| [v['name'], v['id']]} %>
   <%# <p>Choissisez votre liste quand c'est fini</p> %>
+
+  <%#= field with custom field to select the estimated time %>
+
   <%= f.submit %>
 <% end %>
