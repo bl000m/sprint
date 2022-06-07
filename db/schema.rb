@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_06_130054) do
+ActiveRecord::Schema.define(version: 2022_06_07_091300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 2022_06_06_130054) do
     t.boolean "done"
     t.string "desc"
     t.string "trello_member_id"
+    t.integer "trello_field_estimated_time_id"
+    t.integer "trello_field_real_time_id"
     t.index ["project_id"], name: "index_tasks_on_project_id"
   end
 
