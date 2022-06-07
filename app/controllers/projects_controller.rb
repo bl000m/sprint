@@ -31,9 +31,7 @@ class ProjectsController < ApplicationController
   private
 
   def getTrelloBoards
-    json = URI.open("https://api.trello.com/1/members/me/boards?key=#{ENV['TRELLO_API_KEY']}&token=#{current_user.token}").read
-    data = JSON.parse(json)
-    @boards = data.map { |element| element.slice('name', 'id')}
+    @boards = Trello.new(current_user.token).boards.map { |board| board.slice('name', 'id') }
   end
 
   def getTrelloLists
@@ -50,31 +48,31 @@ class ProjectsController < ApplicationController
     @trello_custom_fields = data.map { |element| element.slice('name', 'id')}
   end
 
-  def getTrelloEstimatedTime
-    url_board_custom_fields = "https://api.trello.com/1/boards/#{trello_board_id}/customFields?key=#{ENV['TRELLO_API_KEY']}&token=#{user.token}"
-    json = URI.open(url_board_custom_fields).read
-    data = JSON.parse(json)
-    board_estimated_item = data.find { |item| item.where(name: "estimated time") }
-    trello_estimated_id = board_estimated_item['id']
-    url_card_custom_fields = "https://api.trello.com/1/cards/#{params[:card_id]}/customFieldItems?key=#{ENV['TRELLO_API_KEY']}&token=#{current_user.token}"
-    json = URI.open(url_card_custom_fields).read
-    data = JSON.parse(json)
-    card_estimated_item = data.find { |fields| fields.where(idCustomField: trello_estimated_id) }
-    trello_estimated_time = minutes_to_hms(card_estimated_item['value']['number'])
-  end
+  # def getTrelloEstimatedTime
+  #   url_board_custom_fields = "https://api.trello.com/1/boards/#{trello_board_id}/customFields?key=#{ENV['TRELLO_API_KEY']}&token=#{user.token}"
+  #   json = URI.open(url_board_custom_fields).read
+  #   data = JSON.parse(json)
+  #   board_estimated_item = data.find { |item| item.where(name: "estimated time") }
+  #   trello_estimated_id = board_estimated_item['id']
+  #   url_card_custom_fields = "https://api.trello.com/1/cards/#{params[:card_id]}/customFieldItems?key=#{ENV['TRELLO_API_KEY']}&token=#{current_user.token}"
+  #   json = URI.open(url_card_custom_fields).read
+  #   data = JSON.parse(json)
+  #   card_estimated_item = data.find { |fields| fields.where(idCustomField: trello_estimated_id) }
+  #   trello_estimated_time = minutes_to_hms(card_estimated_item['value']['number'])
+  # end
 
-  def getTrelloRealTime
-    url_board_custom_fields = "https://api.trello.com/1/boards/#{trello_board_id}/customFields?key=#{ENV['TRELLO_API_KEY']}&token=#{user.token}"
-    json = URI.open(url_board_custom_fields).read
-    data = JSON.parse(json)
-    board_real_item = data.find { |item| item.where(name: "real time") }
-    trello_real_time_id = board_real_item['id']
-    url_card_custom_fields = "https://api.trello.com/1/cards/#{params[:card_id]}/customFieldItems?key=#{ENV['TRELLO_API_KEY']}&token=#{current_user.token}"
-    json = URI.open(url_card_custom_fields).read
-    data = JSON.parse(json)
-    card_real_item = data.find { |fields| fields.where(idCustomField: trello_real_time_id ) }
-    trello_real_time = minutes_to_hms(ard_real_item['value']['number'])
-  end
+  # def getTrelloRealTime
+  #   url_board_custom_fields = "https://api.trello.com/1/boards/#{trello_board_id}/customFields?key=#{ENV['TRELLO_API_KEY']}&token=#{user.token}"
+  #   json = URI.open(url_board_custom_fields).read
+  #   data = JSON.parse(json)
+  #   board_real_item = data.find { |item| item.where(name: "real time") }
+  #   trello_real_time_id = board_real_item['id']
+  #   url_card_custom_fields = "https://api.trello.com/1/cards/#{params[:card_id]}/customFieldItems?key=#{ENV['TRELLO_API_KEY']}&token=#{current_user.token}"
+  #   json = URI.open(url_card_custom_fields).read
+  #   data = JSON.parse(json)
+  #   card_real_item = data.find { |fields| fields.where(idCustomField: trello_real_time_id ) }
+  #   trello_real_time = minutes_to_hms(ard_real_item['value']['number'])
+  # end
 
   # || ?
   # VV ?
@@ -85,9 +83,6 @@ class ProjectsController < ApplicationController
     "#{min/60}h #{min % 60}min"
   end
 
-  def hms_to_minutes(hms)
-    #???
-  end
 
 
 end
