@@ -5,14 +5,16 @@
 <%= simple_form_for(project) do |f| %>
   <%= f.input :name, as: :hidden %>
   <%= f.input :trello_board_id, as: :hidden %>
+
+
   <p>Choose your TO DO list</p>
   <%= f.select :trello_list_id, trello_lists.map {|v| [v['name'], v['id']]} %>
+
   <p>Choose your DONE list</p>
   <%= f.select :trello_done_list_id, trello_lists.map {|v| [v['name'], v['id']]} %>
-  <%#= f.select :trello_board_id, trello_lists.map {|v| [v['name'], v['id']]} %>
-  <%# <p>Choissisez votre liste quand c'est fini</p> %>
 
-  <%#= field with custom field to select the estimated time %>
+  <p>Choose your custom field who contains estimated duration</p>
+  <%= f.select :trello_field_estimated_time_id, trello_custom_fields.map {|v| [v['name'], v['id']]}  %>
 
   <%= f.submit %>
 <% end %>
