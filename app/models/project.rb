@@ -29,7 +29,7 @@ class Project < ApplicationRecord
       @trello_estimated_field = data.map { |element| element.name['estimated time']}
       @card_id = element['id']
 
-      @task = Task.create!(project: self, name: element['name'], desc: element['desc'], trello_id: element['id'], trello_field_estimated_time_id: ,  trello_member_id: element['idMembers'].first )
+      @task = Task.create!(project: self, name: element['name'], desc: element['desc'], trello_id: element['id'], trello_field_estimated_time_id: element['estimated time'] ,  trello_member_id: element['idMembers'].first )
     end
   end
 
