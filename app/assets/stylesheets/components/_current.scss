@@ -72,6 +72,20 @@
   text-align: center;
 }
 
+// bouton feedback
+.feedback-button {
+  cursor: pointer;
+  background: #84DFFC;
+  width: 140px;
+  border-radius: 10px;
+  text-align: center;
+  color: #fafafa;
+
+  &:hover {
+    background: #FBBE3E;
+  }
+}
+
 // colonne de droite
 .right {
   background: #fafafa;
@@ -113,7 +127,7 @@
 }
 
 // bouton feedback
-.right .feedback-button {
+.right .end-task-button {
   background: #201CEC78;
   border: none;
   width: 140px;
