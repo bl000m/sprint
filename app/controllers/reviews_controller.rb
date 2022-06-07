@@ -11,8 +11,8 @@ class ReviewsController < ApplicationController
     @task = Task.find(params[:task_id])
     @review = Review.new(review_params)
     @review.task = @task
-    if review.save
-      redirect_to task_path(@task)
+    if @review.save
+      redirect_to tasks_path(@task)
     else
       render "reviews/show"
     end
