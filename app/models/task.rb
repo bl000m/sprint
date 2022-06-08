@@ -4,16 +4,17 @@ class Task < ApplicationRecord
   has_many :missions, dependent: :destroy
   has_many :reviews
 
+  #moving
+  def done!
+    update(done: true)
+  end
+
   def total_time_of_terminated_missions
     select_sql = <<~SQL
       *,
       extract(epoch from (end_at - created_at)) AS difference
     SQL
-    if missions.where(end_at: nil)
       seconds_to_hms(missions.where.not(end_at: nil).select(select_sql).map(&:difference).sum)
-    else
-      seconds_to_hms(missions.where.not(end_at: nil).select(select_sql).map(&:difference).sum)
-    end
   end
 
   def synchro_real_time
@@ -24,9 +25,6 @@ class Task < ApplicationRecord
     "%02d:%02d:%02d" % [sec / 3600, sec / 60 % 60, sec % 60]
   end
 end
-
-
-
 
 require "uri"
 require "json"
