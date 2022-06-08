@@ -1,28 +1,67 @@
 .feedback-form-content {
-  width: 500px;
-  height: 300px;
+  width: 100%;
   border: 2px solid black;
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background: #FAFAFA;
 }
 
+// header du feedback form
+.feedback-form-heading-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 40px;
+  border-bottom: 2px solid black;
+}
+
+.feedback-form-heading-content h4 {
+  font-weight: bold;
+  font-size: 20px;
+  padding-left: 15px;
+  margin-bottom: 0;
+  letter-spacing: 1px;
+}
+
+.feedback-form-heading-content span {
+  font-size: 25px;
+  font-weight: bold;
+  padding-right: 15px;
+  cursor: pointer;
+}
+
+// formulaire de feedback
 .feedback-form-button {
   background-color: #84DFFC;
+  width: 110px;
   border-radius: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+
+  &:hover {
+    background: #FBBE3E;
+  }
+}
+
+.feedback-form-button .btn {
+  color: #FAFAFA;
+  font-weight: 500;
 }
 
 .feedback-form-input {
   background-color: #FAFAFA;
+  padding-top: 20px;
 }
 
 .form-control {
   background-color: #FAFAFA;
   border-radius: 10px;
-  width: 400px;
-  height: 200px;
+  width: 600px;
+  height: 150px;
 
 }
 
@@ -34,6 +73,5 @@
 }
 
 .form-label {
-  font-size: 20px;
-  font: bold;
+  display: none;
 }

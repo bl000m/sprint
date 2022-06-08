@@ -1,0 +1,56 @@
+// GENERAL
+body {
+  background: #fafafa;
+}
+
+.new-board-container {
+  margin-top: 2vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 10vh;
+}
+
+.new-board-wrapper {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+}
+
+.new-board-card {
+  width: 50%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 2px solid black;
+  margin-bottom: 20px;
+}
+
+.new-board-card:nth-child(odd) {
+  background: #84DFFC;
+
+  &:hover {
+    background: #FBBE3E;
+  }
+}
+
+.new-board-card:nth-child(even) {
+  background: #201CEC78;
+
+  &:hover {
+    background: #FBBE3E;
+  }
+}
+
+.project-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fafafa;
+  cursor: pointer;
+}

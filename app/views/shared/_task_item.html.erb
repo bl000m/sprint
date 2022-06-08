@@ -1,29 +1,36 @@
-<div class="task-wrapper">
+<div class="task-wrapper" data-controller="task-item-description" data-task-item-description-target="resize" >
 
   <div class="task-name">
     <p>
       <%= task.name %>
     </p>
   </div>
+  <div class="task-content">
 
-  <div class="task-informations">
+    <div class="task-informations">
 
-    <div class="task-estimated-time">
-      <p>
-        1h30min (<%= task.estimated_time %>)
-      </p>
+      <div class="task-estimated-time">
+        <p>
+          <%= task.estimated_time %>
+        </p>
+      </div>
+
+      <div class="task-description">
+        <span data-action="click->task-item-description#showDescription">
+          Description
+        </span>
+      </div>
+
+      <div class="launch-task">
+        <span data-task-id="<%= task.id %>" data-action="click->tasks#startTask">
+          Launch task
+        </span>
+      </div>
+
     </div>
 
-    <div class="task-description">
-      <span>
-        Description
-      </span>
-    </div>
-
-    <div class="launch-task">
-      <span data-task-id="<%= task.id %>" data-action="click->tasks#startTask">
-        Launch task
-      </span>
+    <div class="task-description-content" data-task-item-description-target="description">
+      <p><strong>Description:</strong> Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias tenetur omnis dolorem eveniet blanditiis</p>
     </div>
 
   </div>

@@ -61,5 +61,3 @@ class Project < ApplicationRecord
     ap json
     JSON.parse(json)
   end
-
-end

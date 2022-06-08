@@ -1,9 +1,12 @@
 <%= simple_form_for [task, review] do |f| %>
   <div class="feedback-form-content">
+    <div class="feedback-form-heading-content">
+      <h4>Your feedback</h4>
+      <span data-action="click->form-modal#openModal">&times;</span>
+    </div>
 
     <div class="feedback-form-input">
       <%= f.input :feedback, as: :text, autofocus: true, placeholder: "Add your feedback here"%>
-
     </div>
 
     <div class="feedback-form-button">
@@ -11,5 +14,4 @@
     </div>
 
   </div>
-
 <% end %>

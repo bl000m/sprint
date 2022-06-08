@@ -14,11 +14,23 @@ h1 {
   font-weight: 700;
 }
 
+.container-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(0,0,0,0.5);
+}
+
 // tache en cours
 .current-task-container {
   width: 100%;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
   padding-top: 20px;
 }
 
@@ -44,21 +56,32 @@ h1 {
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .done-tasks-list {
-  width: 80%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 // feedback form
 .feedback-form-container {
+  width: 60%;
   padding-top: 20px;
   padding-bottom: 60px;
+  display: none;
+  z-index: 20;
 }
 
 // modal du formulaire
 .open-modal {
-  background-color: blue;
+  display: initial;
+  top: 50%;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 // AGENDA

@@ -10,6 +10,10 @@
   margin-bottom: 20px;
 }
 
+.resize-wrapper {
+  height: 120px;
+}
+
 // nom de la tache
 .task-name {
   background: #00C2FF78;
@@ -30,9 +34,19 @@
 }
 
 // div task informations
-.task-informations {
+.task-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
   height: 100%;
   width: 70%;
+
+}
+
+.task-informations {
+  height: 100%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -99,4 +113,21 @@
   &:hover {
     background: #FBBE3E;
   }
+}
+
+// description de la tache suite appui bouton
+.task-description-content {
+  display: none;
+}
+
+.task-description-content p {
+  font-style: italic;
+  font-size: 14px;
+}
+
+.open-description {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 20px;
 }
