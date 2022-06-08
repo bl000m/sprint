@@ -1,7 +1,7 @@
 <div class="container" data-controller="tasks" data-controller="formModal">
-  <% unless current_user.missions.last.task.done %>
+  <%# <% #unless current_user.missions.last.task.done %>
     <% mission = (current_user.current_mission || current_user.missions.last) %>
-  <% end %>
+  <%# <% end %>
   <h1>Current task</h1>
   <div class="current-task-container">
     <div class="current-task-infos">
