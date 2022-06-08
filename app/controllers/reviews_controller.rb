@@ -21,14 +21,12 @@ class ReviewsController < ApplicationController
 
   def post_trello_comment
     url = URI("https://api.trello.com/1/cards/629728b2f5cce82bc011d3fa/actions/comments")
-    
     data = {
       key: ENV['TRELLO_API_KEY'],
       token: current_user.token,
       text: @review.feedback
     }
     url.query = data.to_query
-
     https = Net::HTTP.new(url.host, url.port)
     https.use_ssl = true
     request = Net::HTTP::Post.new(url)
