@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     get 'new/form', to: 'projects#form', on: :collection
   end
   devise_for :users
-  root to: 'tasks#index'
+  root to: 'pages#home'
   resources :tasks, only: [ :index, :show, :create ] do
     resources :reviews, only: [:create, :index]
     resources :missions, only: :create
