@@ -3,9 +3,15 @@ Rails.application.routes.draw do
     get 'new/boards', to: 'projects#new_boards', on: :collection
     get 'new/form', to: 'projects#form', on: :collection
   end
+  resources :tasks, only: [:show] do
+    #moving
+    member do
+      post :done, to: 'tasks#done'
+    end
+  end
   devise_for :users
-  root to: 'tasks#index'
-  resources :tasks, only: [ :index, :show, :create ] do
+  root to: 'pages#home'
+  resources :tasks, only: [ :index, :create] do
     resources :reviews, only: [:create, :index]
     resources :missions, only: :create
   end

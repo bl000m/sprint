@@ -1,4 +1,4 @@
-<div  data-tasks-target="currentMission">
+
   <% if mission %>
     <div class="row">
       <div class="column left">
@@ -7,8 +7,7 @@
           <h2><%= mission.task.name %></h2>
             <p>
               <span>Description:</span>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
-              tenetur omnis dolorem eveniet blanditiis
+              <%= mission.task.desc %>
             </p>
         </div>
 
@@ -42,7 +41,7 @@
           <button class="pause-button" data-action="click->tasks#pause"><%= image_tag "pause-64.png", class: "button-pictures" %> </button>
         <% end %>
 
-        <button class="end-task-button">End Task</button>
+        <button class="end-task-button" data-action="click->tasks#done" data-task-id="<%=mission.task.id%>">End Task</button>
       </div>
     </div>
   <% else %>
@@ -51,8 +50,6 @@
 
   <% end %>
 
-
-</div>
 
 <%#= (ap mission.task.missions.pluck(:created_at, :end_at), index: false).html_safe %>
 
