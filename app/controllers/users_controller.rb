@@ -24,16 +24,6 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
-  def boards
-    url = URI("https://api.trello.com/1/members/me/boards?key=#{ENV['TRELLO_API_KEY']}&token=#{current_user.token}")
-    https = Net::HTTP.new(url.host, url.port)
-    https.use_ssl = true
-
-    request = Net::HTTP::Get.new(url)
-    response = https.request(request)
-    @data = JSON.parse(response.read_body)
-  end
-
   private
 
   def contact_params
@@ -49,16 +39,7 @@ class UsersController < ApplicationController
   end
 
   def trello_user_id
-    url = URI("https://api.trello.com/1/members/me?key=#{ENV['TRELLO_API_KEY']}&token=#{@token}")
-    ap url
-    https = Net::HTTP.new(url.host, url.port)
-    https.use_ssl = true
-
-    request = Net::HTTP::Get.new(url)
-    response = https.request(request)
-    json = response.read_body
-    ap json
-    data = JSON.parse(json)
-    data["id"]
+    me = Trello.new(@token).me
+    me['id']
   end
 end
