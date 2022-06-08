@@ -1,1 +1,105 @@
 // Specific CSS for your home-page
+
+// general de la home page
+.home-container {
+  width: 100%;
+  height: 800px;
+  padding-top: 2vh;
+  background-color: #FAFAFA;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heading-container {
+  width: 100%;
+  padding-top: 2vh;
+  margin-top: 2vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+// haut de la home page
+.home-heading-content {
+  width: 40%;
+  height: 450px;
+  padding-top: 2vh;
+  background: #FAFAFA;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  // border-left: 1px solid black;
+  // border-top: 1px solid black;
+  // border-right: 1px solid black;
+  border-radius: 10px 10px 0px 0px;
+
+}
+
+// interieur du haut de la home
+.trello-card {
+  width: 200px;
+  height: 200px;
+  background-color:#FAFAFA;
+  margin: 0 auto;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 60px;
+}
+
+.Trello-logo {
+  width: 150px;
+  height: 150px
+}
+
+.plus-icon {
+  font-size: 40px;
+}
+
+.sprint-card {
+  width: 200px;
+  height: 200px;
+  background-color: #FAFAFA;
+  margin: 0 auto;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 60px;
+}
+
+.Sprint-logo {
+  width: 150px;
+  height: 150px;
+}
+
+// bas de la home page
+.home-bottom-content {
+  width: 40%;
+  height: 150px;
+  background: #FAFAFA;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // border: 1px solid black;
+  border-radius: 0px 0px 10px 10px;
+}
+
+// interieur du bas de home
+.btn-connexion {
+  font-size: 32px;
+  border: 1px solid black;
+  background-color: #84DFFC;
+  border-radius: 10px;
+  width: 300px;
+  height: 60px;
+  text-align: center;
+
+  &:hover {
+    background-color: #FBBE3E;
+  }
+}
