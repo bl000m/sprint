@@ -1,20 +1,31 @@
+<div class="project-form-container">
+  <h1><%= project.name %></h1>
+  <div class="new-project-form-wrapper">
 
+    <%= simple_form_for(project) do |f| %>
+      <div class="display-none">
+        <%= f.input :name, as: :hidden %>
+        <%= f.input :trello_board_id, as: :hidden %>
+      </div>
+      <div class="form-input">
+        <p>Choose your TO DO list</p>
+        <%= f.select :trello_list_id, trello_lists.map {|v| [v['name'], v['id']]} %>
+      </div>
 
-<%= project.name %>
+      <div class="form-input">
+        <p>Choose your DONE list</p>
+        <%= f.select :trello_done_list_id, trello_lists.map {|v| [v['name'], v['id']]} %>
+      </div>
 
-<%= simple_form_for(project) do |f| %>
-  <%= f.input :name, as: :hidden %>
-  <%= f.input :trello_board_id, as: :hidden %>
+      <div class="form-time">
+        <p>Choose your custom field who contains estimated duration</p>
+        <%= f.select :trello_field_estimated_time_id, trello_custom_fields.map {|v| [v['name'], v['id']]}  %>
+      </div>
 
+      <div class="project-form-btn">
+        <%= f.submit %>
+      </div>
+    <% end %>
 
-  <p>Choose your TO DO list</p>
-  <%= f.select :trello_list_id, trello_lists.map {|v| [v['name'], v['id']]} %>
-
-  <p>Choose your DONE list</p>
-  <%= f.select :trello_done_list_id, trello_lists.map {|v| [v['name'], v['id']]} %>
-
-  <p>Choose your custom field who contains estimated duration</p>
-  <%= f.select :trello_field_estimated_time_id, trello_custom_fields.map {|v| [v['name'], v['id']]}  %>
-
-  <%= f.submit %>
-<% end %>
+  </div>
+</div>

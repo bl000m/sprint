@@ -36,6 +36,9 @@ class Project < ApplicationRecord
     custom_field_real_item = custom_fields.find { |custom_field| custom_field['name'] == CUSTOM_FIELD_REAL_NAME }
     custom_field_real_item = create_custom_field_real_time! if custom_field_real_item.nil?
     update(trello_field_real_time_id: custom_field_real_item['id'])
+    end
+
+    # @task = Task.create!(project: self, name: element['name'], desc: element['desc'], trello_id: element['id'], trello_member_id: element['idMembers'].first )
   end
 
 
@@ -59,4 +62,3 @@ class Project < ApplicationRecord
     ap json
     JSON.parse(json)
   end
-end
