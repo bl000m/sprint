@@ -9,11 +9,11 @@ class Task < ApplicationRecord
       *,
       extract(epoch from (end_at - created_at)) AS difference
     SQL
-    if missions.where(end_at: nil)
+    # if missions.where(end_at: nil)
+    #   seconds_to_hms(missions.where.not(end_at: nil).select(select_sql).map(&:difference).sum)
+    # else
       seconds_to_hms(missions.where.not(end_at: nil).select(select_sql).map(&:difference).sum)
-    else
-      seconds_to_hms(missions.where.not(end_at: nil).select(select_sql).map(&:difference).sum)
-    end
+    # end
   end
 
   def synchro_real_time
