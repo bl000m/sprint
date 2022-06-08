@@ -41,6 +41,7 @@ class Project < ApplicationRecord
     # @task = Task.create!(project: self, name: element['name'], desc: element['desc'], trello_id: element['id'], trello_member_id: element['idMembers'].first )
   end
 
+      # @task = Task.create!(project: self, name: element['name'], desc: element['desc'], trello_id: element['id'],  trello_member_id: element['idMembers'].first )
   def get_custom_fields
     url_board_custom_fields = "https://api.trello.com/1/boards/#{trello_board_id}/customFields?key=#{ENV['TRELLO_API_KEY']}&token=#{user.token}"
     json = URI.open(url_board_custom_fields).read
@@ -60,5 +61,5 @@ class Project < ApplicationRecord
     ap json
     JSON.parse(json)
   end
-  
+
 end

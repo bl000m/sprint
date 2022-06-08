@@ -12,8 +12,10 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.task = @task
     if @review.save
-      post_trello_comment
+
+
       redirect_to task_path(@task)
+
     else
       render "reviews/show"
     end
