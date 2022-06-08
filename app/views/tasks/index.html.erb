@@ -1,11 +1,13 @@
 <div class="container" data-controller="tasks" data-controller="formModal">
-
-  <% mission = (current_user.current_mission || current_user.missions.last) %>
-
+  <%# <% #unless current_user.missions.last.task.done %>
+    <% mission = (current_user.current_mission || current_user.missions.last) %>
+  <%# <% end %>
   <h1>Current task</h1>
   <div class="current-task-container">
     <div class="current-task-infos">
-      <%= render 'missions/current', mission: mission %>
+      <div  data-tasks-target="currentMission">
+        <%= render 'missions/current', mission: mission %>
+      </div>
     </div>
   </div>
 
@@ -21,9 +23,9 @@
 
   <h1>Done tasks</h1>
   <div class="done-tasks-container">
-    <div class="done-tasks-list">
+    <div class="done-tasks-list" data-tasks-target="doneItems">
       <div class="cards-list-container">
-        <% @tasks.each do |task| %>
+        <% @done_tasks.each do |task| %>
           <%= render 'shared/task_item', task: task %>
           <%#= render 'shared/task_card', task: task%>
         <% end %>
