@@ -1,9 +1,11 @@
 <nav>
   <div class="nav-container">
-    <div class="nav-logo">
-      <%= image_tag "sprint.png", class: "logo"%>
-      <span>SPRINT</span>
-    </div>
+    <%= link_to tasks_path, class: "text-decoration" do%>
+      <div class="nav-logo" >
+        <%= image_tag "sprint.png", class: "logo" %>
+        <span>SPRINT </span>
+      </div>
+    <% end %>
     <div class="nav-menu">
       <span><%= link_to 'Connect with Trello', users_connect_trello_account_path %></span>
       <span><%= link_to 'Add a project', new_project_path %></span>
