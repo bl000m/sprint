@@ -29,6 +29,8 @@ class Trello
     # put_request_no_body(url, query)
   end
 
+
+
   def me
     url = URI("https://api.trello.com/1/members/me?key=#{API_KEY}&token=#{@token}")
     get_request(url)
