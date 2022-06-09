@@ -5,13 +5,15 @@
         <%= image_tag "sprint.png", class: "logo" %>
         <span>SPRINT </span>
 
-        <%= current_user&.email %>
+        <!--<%= current_user&.email %>-->
 
       </div>
     <% end %>
     <div class="nav-menu">
-      <span><%= link_to 'Add a project', new_project_path %></span>
-      <%= image_tag "controls.png", class: "menu-toggle"%>
+      <span><%= link_to 'New project', new_project_path, class: "project-btn-text" %></span>
     </div>
   </div>
 </nav>
+
+      <!--<%= image_tag "controls.png", class: "menu-toggle"%>
+      <span><%= link_to 'Connect with Trello', users_connect_trello_account_path %></span>-->

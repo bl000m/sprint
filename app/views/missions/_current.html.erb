@@ -4,45 +4,64 @@
       <div class="column left">
 
         <div class="current-task-heading-content">
-          <h2><%= mission.task.name %></h2>
+          <h2><%= mission.task.name.capitalize %></h2>
             <p>
               <span>Description:</span>
               <%= mission.task.desc %>
             </p>
         </div>
 
+
         <div class="time-details">
 
-          <div class="timer-display" <%= 'data-controller="timer"'.html_safe unless mission.end_at %>
-              data-timer-previous-time-value="<%= mission.task.total_time_of_terminated_missions.to_i %>"
-              data-timer-start-value="<%= mission.created_at %>">
+          <div class="text-field">
+            <p>Session time:</p>
+            <div class="timer-display" <%= 'data-controller="timer"'.html_safe unless mission.end_at %>
+                data-timer-previous-time-value="<%= mission.task.total_time_of_terminated_missions.to_i %>"
+                data-timer-start-value="<%= mission.created_at %>">
 
-                <span><%= mission.task.total_time_of_terminated_missions%></span>
+                  <span><%= mission.task.total_time_of_terminated_missions%></span>
+            </div>
           </div>
-
           <%# #todo jeudi %>
-          <div class="total-time">
-            <span  data-tasks-real-time="<%= mission.task.total_time_of_terminated_missions.to_i %>">total time: <%= mission.task.total_time_of_terminated_missions%></span>
+          <div class="text-field">
+            <p>Total time:</p>
+            <div class="total-time">
+              <span  data-tasks-real-time="<%= mission.task.total_time_of_terminated_missions.to_i %>"><%= mission.task.total_time_of_terminated_missions%></span>
+            </div>
+          </div>
+          <div class="text-field">
+            <p>estimated time:</p>
+            <div class="total-estimated-time">
+              <span><%= mission.task.estimated_time_str %></span>
+            </div>
           </div>
 
-          <div class="feedback-button">
-            <span data-action="click->form-modal#openModal">Add feedback</span>
-          </div>
+
 
         </div>
 
       </div>
 
       <div class="column right">
-        <% if mission.end_at %>
-          <button class="play-button" data-task-id="<%= mission.task_id %>" data-action="click->tasks#startTask">
-            <%= image_tag "play-64.png", class: "button-pictures play-part" %>
-          </button>
-        <% else %>
-          <button class="pause-button" data-action="click->tasks#pause"><%= image_tag "pause-64.png", class: "button-pictures" %> </button>
-        <% end %>
+        <div class="buttons-play-pause-stop">
+          <% if mission.end_at %>
+            <button class="play-button" data-task-id="<%= mission.task_id %>" data-action="click->tasks#startTask">
+              <%= image_tag "play-64.png", class: "button-pictures play-part" %>
+            </button>
+          <% else %>
+            <button class="pause-button" data-action="click->tasks#pause"><%= image_tag "pause-64.png", class: "button-pictures" %> </button>
+          <% end %>
 
-        <button class="end-task-button" data-action="click->tasks#done" data-task-id="<%=mission.task.id%>">End Task</button>
+          <button class="end-task-button" data-action="click->tasks#done" data-task-id="<%=mission.task.id%>">
+            <%= image_tag "stop.png", class: "button-pictures" %>
+          </button>
+        </div>
+
+        <div class="feedback-button">
+          <span data-action="click->form-modal#openModal">Add feedback <%= image_tag "comments-32.png", class: "feedback-icon"%></span>
+        </div>
+
       </div>
     </div>
   <% else %>
