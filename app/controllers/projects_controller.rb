@@ -66,9 +66,9 @@ class ProjectsController < ApplicationController
   def sendRealTimeToTrello
   end
 
-  def minutes_to_hms(min)
-    "#{min/60}h #{min % 60}min"
-  end
+  # def minutes_to_hms(min)
+  #   "#{min/60}h #{min % 60}min"
+  # end
 
 
 
