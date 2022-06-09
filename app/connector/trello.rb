@@ -7,6 +7,22 @@ class Trello
     @token = token
   end
 
+  def send_feedback_to_trello(task, review)
+    puts "#{task.trello_id}"
+    url = URI("https://api.trello.com/1/cards/#{task.trello_id}/actions/comments")
+    data = {
+      key: ENV['TRELLO_API_KEY'],
+      token: @token,
+      text: review.feedback
+    }
+    url.query = data.to_query
+    https = Net::HTTP.new(url.host, url.port)
+    https.use_ssl = true
+    request = Net::HTTP::Post.new(url)
+    response = https.request(request)
+    puts response.read_body
+  end
+
   #moving
   def move_card(card_id, list_id)
     require "uri"
@@ -65,7 +81,7 @@ class Trello
       key: API_KEY,
       token: @token
     }
-    body = { value: { number: task.real_time } }
+    body = { value: { number: task.total_time_sec } }
     put_request(url, query, body)
   end
 

@@ -4,9 +4,9 @@
   <!--fin div overlay-->
 
 
+  <% mission = (current_user.current_mission || current_user.missions.last) %>
   <div class="container" data-controller="tasks">
     <%# <% #unless current_user.missions.last.task.done %>
-      <% mission = (current_user.current_mission || current_user.missions.last) %>
     <%# <% end %>
     <h1>Current task</h1>
     <div class="current-task-container">
@@ -21,7 +21,7 @@
           <%= render "shared/feedback_form", review: @review, task: current_user.missions.last.task %>
         </div>
 
-      
+
       <% end %>
     </div>
 

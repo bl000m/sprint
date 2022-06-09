@@ -12,28 +12,15 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.task = @task
     if @review.save
-
-
-      redirect_to task_path(@task)
-
+      post_trello_comment
+      redirect_to tasks_path
     else
       render "reviews/show"
     end
   end
 
   def post_trello_comment
-    url = URI("https://api.trello.com/1/cards/629728b2f5cce82bc011d3fa/actions/comments")
-    data = {
-      key: ENV['TRELLO_API_KEY'],
-      token: current_user.token,
-      text: @review.feedback
-    }
-    url.query = data.to_query
-    https = Net::HTTP.new(url.host, url.port)
-    https.use_ssl = true
-    request = Net::HTTP::Post.new(url)
-    response = https.request(request)
-    puts response.read_body
+    Trello.new(current_user.token).send_feedback_to_trello(@task, @review)
   end
 
   private
