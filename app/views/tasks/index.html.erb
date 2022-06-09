@@ -11,13 +11,19 @@
     <%# <% end %>
     <h1>Current task</h1>
     <div class="current-task-container">
-      <% if mission %>
+          <% if mission %>
         <div class="current-task-infos">
-          <div  data-tasks-target="currentMission">
-            <%= render 'missions/current', mission: mission %>
-          </div>
+            <div  data-tasks-target="currentMission">
+              <%= render 'missions/current', mission: mission %>
+            </div>
+          <% else %>
+            <div class="current-task-infos">
+              <%= render "shared/ghost_current" %>
+            </div>
+          <% end %>
         </div>
 
+      <% if mission %>
         <div class="feedback-form-container" data-form-modal-target="formFeedback">
           <%= render "shared/feedback_form", review: @review, task: current_user.missions.last.task %>
         </div>
