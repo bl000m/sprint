@@ -182,3 +182,8 @@
   display: flex;
   justify-content: space-around;
 }
+
+.ghost-current-overlay {
+  filter: grayscale(80%);
+  pointer-events: none;
+}

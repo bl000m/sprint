@@ -37,8 +37,6 @@
             </div>
           </div>
 
-
-
         </div>
 
       </div>
@@ -64,9 +62,12 @@
 
       </div>
     </div>
+    
   <% else %>
 
-    Pas de mission en cours
+    <div class="current-task-infos">
+      <%= render "shared/ghost_current" %>
+    </div>
 
   <% end %>
 
