@@ -2,7 +2,7 @@
 <div class="task-wrapper <%= "done-task-overlay" if task.done? %>" data-controller="task-item-description" data-task-item-description-target="resize" id="<%= task.id %>" >
 
 
-  <div class="task-name" data-tasks-target="doneTaskNameOverlay">
+  <div class="task-name" data-tasks-target="doneTaskNameOverlay" data-task-item-description-target="changeBackground">
     <p>
       <%= task.name.capitalize %>
     </p>
@@ -24,7 +24,7 @@
       </div>
 
       <div class="launch-task">
-        <span data-task-id="<%= task.id %>" data-action="click->tasks#startTask" >
+        <span data-task-id="<%= task.id %>" data-action="click->tasks#startTask">
           Play <%= image_tag "play-64.png", class: "play-task-icon"%>
         </span>
       </div>

@@ -10,12 +10,13 @@
   margin-bottom: 20px;
 
   &:hover {
-    cursor: pointer;
     .task-name {
       background: #FBBE3E;
     }
   }
 }
+
+
 
 .resize-wrapper {
   height: 120px;
@@ -94,10 +95,6 @@
   color: #fafafa;
   text-align: center;
   font-weight: 500;
-
-  &:hover {
-    background: #FBBE3E;
-  }
 }
 
 .description-toggle {

@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "description", "resize" ]
+  static targets = [ "description", "resize", "changeBackground" ]
 
   showDescription() {
     this.descriptionTarget.classList.toggle('open-description')

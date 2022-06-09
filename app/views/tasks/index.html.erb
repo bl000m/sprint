@@ -9,7 +9,7 @@
   <div class="container" data-controller="tasks">
     <%# <% #unless current_user.missions.last.task.done %>
     <%# <% end %>
-    <h1>Current task</h1>
+    <h1 class="index-title">Current task</h1>
     <div class="current-task-container">
 
       <div class="current-task-infos">
@@ -29,7 +29,7 @@
       <% end %>
     </div>
 
-    <h1>To do list</h1>
+    <h1 class="index-title">To do list</h1>
     <div class="card-container">
       <div class="cards-list-container">
         <% @tasks.each do |task| %>
@@ -39,7 +39,7 @@
       </div>
     </div>
 
-    <h1>Done tasks</h1>
+    <h1 class="index-title">Done tasks</h1>
     <div class="card-container">
       <div class="cards-list-container" data-tasks-target="doneItems">
         <% @done_tasks.each do |task| %>
