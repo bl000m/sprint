@@ -4,6 +4,9 @@
       <div class="nav-logo" >
         <%= image_tag "sprint.png", class: "logo" %>
         <span>SPRINT </span>
+
+        <%= current_user&.email %>
+
       </div>
     <% end %>
     <div class="nav-menu">
