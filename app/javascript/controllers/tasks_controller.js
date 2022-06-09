@@ -69,7 +69,6 @@ export default class extends Controller {
 
   startTask(e) {
     this.createMission(e.currentTarget.dataset.taskId)
-    document.getElementById(e.currentTarget.dataset.taskId).remove()
   }
 }
 
