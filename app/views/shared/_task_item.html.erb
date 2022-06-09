@@ -1,30 +1,30 @@
 
-<div class="task-wrapper" data-controller="task-item-description" data-task-item-description-target="resize" id="<%= task.id %>" >
+<div class="task-wrapper <%= "done-task-overlay" if task.done? %>" data-controller="task-item-description" data-task-item-description-target="resize" id="<%= task.id %>" >
 
 
-  <div class="task-name">
+  <div class="task-name" data-tasks-target="doneTaskNameOverlay">
     <p>
       <%= task.name %>
     </p>
   </div>
-  <div class="task-content">
+  <div class="task-content" data-tasks-target="doneOverlay">
 
     <div class="task-informations">
 
       <div class="task-estimated-time">
         <p>
-          <%= task.estimated_time %>
+          <%= task.estimated_time_str %>
         </p>
       </div>
 
-      <div class="task-description">
+      <div class="task-description" >
         <span data-action="click->task-item-description#showDescription">
           Description
         </span>
       </div>
 
       <div class="launch-task">
-        <span data-task-id="<%= task.id %>" data-action="click->tasks#startTask">
+        <span data-task-id="<%= task.id %>" data-action="click->tasks#startTask" >
           Launch task
         </span>
       </div>

@@ -24,26 +24,39 @@ class Task < ApplicationRecord
   def seconds_to_hms(sec)
     "%02d:%02d:%02d" % [sec / 3600, sec / 60 % 60, sec % 60]
   end
+
+  def estimated_time_str
+    return unless estimated_time
+
+    Time.at(estimated_time.hours).utc.strftime("%Hh %Mmin")
+  end
+
+  def real_time_str
+    return unless real_time
+
+    Time.at(real_time.hours).utc.strftime("%Hh %Mmin")
+  end
+
 end
 
-require "uri"
-require "json"
-require "net/http"
+# require "uri"
+# require "json"
+# require "net/http"
 
-url = URI("https://api.trello.com/1/card/629efd20242fe507a40f4587/customField/629f808660918e05be8b02a0/item?token=1a2789645a50b692c636125bc0c299b5011b379c36da45151e358e5aa9542fae&key=873e4ba0cea73aac5f84e2b006ed257c")
+# url = URI("https://api.trello.com/1/card/629efd20242fe507a40f4587/customField/629f808660918e05be8b02a0/item?token=1a2789645a50b692c636125bc0c299b5011b379c36da45151e358e5aa9542fae&key=873e4ba0cea73aac5f84e2b006ed257c")
 
-https = Net::HTTP.new(url.host, url.port)
-https.use_ssl = true
+# https = Net::HTTP.new(url.host, url.port)
+# https.use_ssl = true
 
-request = Net::HTTP::Put.new(url)
-request["Accept"] = "application/json"
-request["Content-Type"] = "application/json"
-request["Cookie"] = "dsc=607a2cea527a53c4511bb1a895dff9c3e82e730cb1d3bf6c2b60428aa3ba3ede; preAuthProps=s%3A538c8f4bca2e0ce3f80d408b%3AisEnterpriseAdmin%3Dfalse.vPGQqLWI3pdeeJ%2B5Plp5OmMk78I5711%2Fe4ppzrVpFYo"
-request.body = JSON.dump({
-  "value": {
-    "number": "1111"
-  }
-})
+# request = Net::HTTP::Put.new(url)
+# request["Accept"] = "application/json"
+# request["Content-Type"] = "application/json"
+# request["Cookie"] = "dsc=607a2cea527a53c4511bb1a895dff9c3e82e730cb1d3bf6c2b60428aa3ba3ede; preAuthProps=s%3A538c8f4bca2e0ce3f80d408b%3AisEnterpriseAdmin%3Dfalse.vPGQqLWI3pdeeJ%2B5Plp5OmMk78I5711%2Fe4ppzrVpFYo"
+# request.body = JSON.dump({
+#   "value": {
+#     "number": "1111"
+#   }
+# })
 
-response = https.request(request)
-puts response.read_body
+# response = https.request(request)
+# puts response.read_body

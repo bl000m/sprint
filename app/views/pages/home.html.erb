@@ -21,7 +21,9 @@
   </div>
 
   <div class="home-bottom-content">
-    <%= link_to 'Connect with Trello', users_connect_trello_account_path, class: 'btn-connexion' %>
+    <%= link_to users_connect_trello_account_path do %>
+      <button class="btn-connexion">Connect with Trello</button>
+    <% end %>
   </div>
 
 </div>
