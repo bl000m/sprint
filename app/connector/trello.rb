@@ -8,11 +8,11 @@ class Trello
   end
 
   #moving
-  def move_card_to_done_list(task)
+  def move_card(card_id, list_id)
     require "uri"
     require "net/http"
 
-    url = URI("https://api.trello.com/1/cards/#{task.trello_id}?idList=#{task.project.trello_done_list_id}&key=#{API_KEY}&token=#{@token}")
+    url = URI("https://api.trello.com/1/cards/#{card_id}?idList=#{list_id}&key=#{API_KEY}&token=#{@token}")
     query = {
       key: API_KEY,
       token: @token
@@ -29,7 +29,26 @@ class Trello
     # put_request_no_body(url, query)
   end
 
+  def move_card_to_done_list(task)
+    move_card(task.trello_id, task.project.trello_done_list_id)
+  end
+
+  # only made for mannualy call by developper
+  def reset_project(project)
+    cards = list_cards(project.trello_done_list_id)
+    cards.each do |card|
+      ap "move card ['#{card['name']}']"
+      move_card(card['id'], project.trello_list_id)
+    end
+  end
+
+  def list_cards(list_id)
+    url = URI("https://api.trello.com/1/lists/#{list_id}/cards?key=#{API_KEY}&token=#{@token}")
+    get_request(url)
+  end
+
   def me
+    ap "JE SUIS PRET A FAIRE UNE REQUETE SUR /me"
     url = URI("https://api.trello.com/1/members/me?key=#{API_KEY}&token=#{@token}")
     get_request(url)
   end
