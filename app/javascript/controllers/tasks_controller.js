@@ -2,7 +2,7 @@ import { Controller } from "stimulus"
 import { csrfToken } from "@rails/ujs";
 
 export default class extends Controller {
-  static targets = [ "currentMission", "doneItems" ]
+  static targets = [ "currentMission", "doneItems", "doneOverlay", "doneTaskNameOverlay" ]
   static values = {
     realTime: Number
   }
@@ -47,6 +47,10 @@ export default class extends Controller {
       this.currentMissionTarget.innerHTML = ""
       this.doneItemsTarget.insertAdjacentHTML("beforeend", data)
     })
+
+    // this.doneOverlayTarget.classList.add('done-task-overlay')
+    // this.doneTaskNameOverlayTarget.classList.add('done-task-name-overlay')
+
   }
 
   createMission(taskId) {
