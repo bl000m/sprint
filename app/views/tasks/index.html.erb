@@ -11,10 +11,13 @@
     <%# <% end %>
     <h1>Current task</h1>
     <div class="current-task-container">
+
       <div class="current-task-infos">
         <div  data-tasks-target="currentMission">
           <% if mission %>
             <%= render 'missions/current', mission: mission %>
+          <% else %>
+            <%= render 'shared/ghost_current' %>
           <% end %>
         </div>
       </div>
