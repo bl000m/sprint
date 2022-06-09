@@ -7,14 +7,14 @@
   <h1>Choose a project</h1>
   <div class="new-board-wrapper">
 
-    <% boards.each do |board| %>
+    <% boards.sort { |a, b| a['name'].downcase <=> b['name'].downcase }.each do |board| %>
         <div class="new-board-card">
             <div data-action="click->project#selectBoard"
                 data-name="<%= board['name'] %>"
                 data-id="<%= board['id'] %>"
                 class="project-title"
                 >
-              <%= board['name'] %>
+              <%= board['name'].capitalize %>
             </div>
         </div>
       <% end %>
