@@ -17,6 +17,14 @@ class Task < ApplicationRecord
       seconds_to_hms(missions.where.not(end_at: nil).select(select_sql).map(&:difference).sum)
   end
 
+  def total_time_sec
+    select_sql = <<~SQL
+      *,
+      extract(epoch from (end_at - created_at)) AS difference
+    SQL
+      (missions.where.not(end_at: nil).select(select_sql).map(&:difference).sum / 3600 ).round(4).to_s
+  end
+
   def synchro_real_time
     Trello.new(project.user.token).card_update_real_time(self)
   end

@@ -3,10 +3,6 @@ import { csrfToken } from "@rails/ujs";
 
 export default class extends Controller {
   static targets = [ "currentMission", "doneItems", "doneOverlay", "doneTaskNameOverlay" ]
-  static values = {
-    realTime: Number
-  }
-
 
   pause() {
     console.log('pause')
@@ -28,8 +24,8 @@ export default class extends Controller {
   // #moving
   done(event) {
     console.log('je suis done')
-    console.log(`id: ${event.currentTarget.dataset.taskId}`)
-    console.log(this.doneItemsTarget)
+    // console.log(`id: ${event.currentTarget.dataset.taskId}`)
+    // console.log(this.doneItemsTarget)
     const taskId = event.currentTarget.dataset.taskId
 
     this.pause()

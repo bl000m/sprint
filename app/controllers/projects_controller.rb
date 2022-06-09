@@ -47,31 +47,6 @@ class ProjectsController < ApplicationController
     ap data
     @trello_custom_fields = data.map { |element| element.slice('name', 'id')}
   end
-
-
-  # def getTrelloRealTime
-  #   url_board_custom_fields = "https://api.trello.com/1/boards/#{trello_board_id}/customFields?key=#{ENV['TRELLO_API_KEY']}&token=#{user.token}"
-  #   json = URI.open(url_board_custom_fields).read
-  #   data = JSON.parse(json)
-  #   board_real_item = data.find { |item| item.where(name: "real time") }
-  #   trello_real_time_id = board_real_item['id']
-  #   url_card_custom_fields = "https://api.trello.com/1/cards/#{params[:card_id]}/customFieldItems?key=#{ENV['TRELLO_API_KEY']}&token=#{current_user.token}"
-  #   json = URI.open(url_card_custom_fields).read
-  #   data = JSON.parse(json)
-  #   card_real_item = data.find { |fields| fields.where(idCustomField: trello_real_time_id ) }
-  #   trello_real_time = minutes_to_hms(ard_real_item['value']['number'])
-  # end
-
- #TODO jeudi
-  def sendRealTimeToTrello
-  end
-
-  # def minutes_to_hms(min)
-  #   "#{min/60}h #{min % 60}min"
-  # end
-
-
-
 end
 
   def project_params

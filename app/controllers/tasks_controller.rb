@@ -21,7 +21,9 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     # current_mission&.pause!
     @task&.done!
-    Trello.new(current_user.token).move_card_to_done_list(@task)
+    client = Trello.new(current_user.token)
+    client.move_card_to_done_list(@task)
+    client.card_update_real_time(@task)
     render partial: "shared/task_item", locals: { task: @task }, formats: [:html]
   end
 
