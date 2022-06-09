@@ -1,13 +1,20 @@
 // wrapper de la task
 .task-wrapper {
-  background: #fafafa;
+  background: #FFFF;
   width: 100%;
   height: 50px;
   display: flex;
   align-items: center;
   border-radius: 10px;
-  border: 2px solid black;
+  box-shadow: 1px 1px 1px 1px rgb(202, 202, 202);
   margin-bottom: 20px;
+
+  &:hover {
+    cursor: pointer;
+    .task-name {
+      background: #FBBE3E;
+    }
+  }
 }
 
 .resize-wrapper {
@@ -16,7 +23,7 @@
 
 // nom de la tache
 .task-name {
-  background: #00C2FF78;
+  background: #007AC2;
   height: 100%;
   width: 30%;
   display: flex;
@@ -62,9 +69,9 @@
 
 .task-estimated-time p {
   margin-bottom: 0;
-  background-color: lightgray;
+  background-color: #007AC2;
   border-radius: 10px;
-  width: 110px;
+  width: 120px;
   text-align: center;
   color: #fafafa;
   font-weight: 500;
@@ -81,8 +88,8 @@
 .task-description span {
   margin-bottom: 0;
   cursor: pointer;
-  background: #1CECD3F5;
-  width: 110px;
+  background: #007AC2;
+  width: 120px;
   border-radius: 10px;
   color: #fafafa;
   text-align: center;
@@ -93,6 +100,13 @@
   }
 }
 
+.description-toggle {
+  width: 10px;
+  transform: rotate(90deg);
+  padding-bottom: 2px;
+  padding-right: 1px;
+}
+
 // bouton launch task
 .launch-task {
   height: 100%;
@@ -101,8 +115,14 @@
   justify-content: center;
 }
 
+.play-task-icon {
+  width: 14px;
+  padding-left: 1px;
+  padding-bottom: 2px;
+}
+
 .launch-task span {
-  background: #201CEC78;
+  background: #FBBE3E;
   cursor: pointer;
   width: 110px;
   text-align: center;
@@ -111,7 +131,7 @@
   font-weight: 500;
 
   &:hover {
-    background: #FBBE3E;
+    background: #007AC2;
   }
 }
 
@@ -123,6 +143,7 @@
 .task-description-content p {
   font-style: italic;
   font-size: 14px;
+  color: rgb(172, 170, 170);
 }
 
 .open-description {
@@ -133,7 +154,7 @@
 }
 
 .done-task-overlay {
-  filter: grayscale(1);
+  filter: grayscale(80%);
   pointer-events: none;
   // width: 100%;
   // height: 100%;
@@ -144,5 +165,5 @@
 }
 
 .done-task-name-overlay {
-  filter: grayscale(1);
+  filter: grayscale(80%);
 }

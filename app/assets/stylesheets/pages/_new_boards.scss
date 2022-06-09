@@ -30,23 +30,27 @@ body {
   border-radius: 10px;
   border: 2px solid black;
   margin-bottom: 20px;
-}
-
-.new-board-card:nth-child(odd) {
-  background: #84DFFC;
-
+  background: #007AC2;
   &:hover {
     background: #FBBE3E;
   }
 }
 
-.new-board-card:nth-child(even) {
-  background: #201CEC78;
+// .new-board-card:nth-child(odd) {
+//   background: #007AC2;
 
-  &:hover {
-    background: #FBBE3E;
-  }
-}
+//   &:hover {
+//     background: #FBBE3E;
+//   }
+// }
+
+// .new-board-card:nth-child(even) {
+//   background: #FBBE3E;
+
+//   &:hover {
+//     background: #007AC2;
+//   }
+// }
 
 .project-title {
   font-size: 20px;

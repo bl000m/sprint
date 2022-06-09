@@ -4,7 +4,7 @@
 
   <div class="task-name" data-tasks-target="doneTaskNameOverlay">
     <p>
-      <%= task.name %>
+      <%= task.name.capitalize %>
     </p>
   </div>
   <div class="task-content" data-tasks-target="doneOverlay">
@@ -19,13 +19,13 @@
 
       <div class="task-description" >
         <span data-action="click->task-item-description#showDescription">
-          Description
+          Description<%= image_tag "play-64.png", class: "description-toggle"%>
         </span>
       </div>
 
       <div class="launch-task">
         <span data-task-id="<%= task.id %>" data-action="click->tasks#startTask" >
-          Launch task
+          Play <%= image_tag "play-64.png", class: "play-task-icon"%>
         </span>
       </div>
 

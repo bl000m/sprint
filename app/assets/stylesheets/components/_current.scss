@@ -7,7 +7,7 @@
 
 .row {
   height: 200px;
-  border: 2px solid black;
+  box-shadow: 1px 1px 1px 1px rgb(202, 202, 202);
   border-radius: 10px;
 }
 
@@ -20,7 +20,7 @@
 // colonne de gauche
 .left {
   width: 70%;
-  background: #fafafa;
+  background: #FFFFFF;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   display: flex;
@@ -38,6 +38,7 @@
   font-size: 30px;
   font-weight: bold;
   font-style: normal;
+  color: black;
 }
 
 .current-task-heading-content span {
@@ -48,17 +49,40 @@
   font-style: italic;
   font-size: 14px;
   margin-bottom: 0;
+  color: rgb(172, 170, 170);
 }
 
 // affichage du timer et du temps total
-.time-details {
+
+.time-text {
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
+.text-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-field p {
+  margin-bottom: 3px;
+  color: rgb(172, 170, 170);
+  font-style: italic;
+}
+
+.time-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-top: 1px solid rgb(172, 170, 170);
+  // padding-top: 15px;
+}
+
 .time-details .timer-display {
-  background: lightgray;
+  background: #007AC2;
   border-radius: 10px;
   color: #fafafa;
   width: 110px;
@@ -69,27 +93,43 @@
   background: #FBBE3E;
   border-radius: 10px;
   color: #fafafa;
-  width: 200px;
+  width: 110px;
+  text-align: center;
+}
+
+.total-estimated-time {
+  background: #007AC2;
+  border-radius: 10px;
+  color: #fafafa;
+  width: 110px;
   text-align: center;
 }
 
 // bouton feedback
 .feedback-button {
   cursor: pointer;
-  background: #84DFFC;
-  width: 140px;
+  background: #007AC2;
+  width: 150px;
+  height: 40px;
   border-radius: 10px;
   text-align: center;
   color: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     background: #FBBE3E;
   }
 }
 
+.feedback-icon {
+  width: 16px;
+}
+
 // colonne de droite
 .right {
-  background: #fafafa;
+  background: #FFFFFF;
   width: 30%;
   display: flex;
   align-items: center;
@@ -101,7 +141,7 @@
 
 // bouton play/pause
 .right .play-button {
-  background: #1CECD3F5;
+  background: #007AC2;
   border: none;
   width: 90px;
   height: 90px;
@@ -129,13 +169,16 @@
 
 // bouton feedback
 .right .end-task-button {
-  background: #201CEC78;
+  background: #FBBE3E;
   border: none;
-  width: 140px;
-  border-radius: 10px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
   color: #fafafa;
+}
 
-  &:hover {
-    background: #FBBE3E;
-  }
+.buttons-play-pause-stop {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
 }
