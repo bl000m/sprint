@@ -1,0 +1,190 @@
+// disposition en deux colonnes
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+.row {
+  height: 200px;
+  box-shadow: 1px 1px 1px 1px rgb(202, 202, 202);
+  border-radius: 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+// colonne de gauche
+.left {
+  width: 70%;
+  background: #FFFFFF;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+
+// affichage du nom de la tache et de sa description
+.ghost-current-task-heading-content {
+  padding-left: 20px;
+  color: lightgrey;
+}
+
+.ghost-current-task-heading-content h2 {
+  font-size: 30px;
+  font-weight: bold;
+  font-style: normal;
+  color: lightgrey;
+}
+
+.current-task-heading-content span {
+  font-weight: bold;
+}
+
+.current-task-heading-content p {
+  font-style: italic;
+  font-size: 14px;
+  margin-bottom: 0;
+  color: rgb(172, 170, 170);
+}
+
+// affichage du timer et du temps total
+
+.time-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.text-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-field p {
+  margin-bottom: 3px;
+  color: rgb(172, 170, 170);
+  font-style: italic;
+}
+
+.time-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-top: 1px solid rgb(172, 170, 170);
+  // padding-top: 15px;
+}
+
+.time-details .ghost-timer-display {
+  background: lightgray;
+  border-radius: 10px;
+  color: #fafafa;
+  width: 110px;
+  text-align: center;
+}
+
+.time-details .ghost-total-time {
+  background: lightgray;
+  border-radius: 10px;
+  color: #fafafa;
+  width: 110px;
+  text-align: center;
+}
+
+.ghost-total-estimated-time {
+  background: lightgrey;
+  border-radius: 10px;
+  color: #fafafa;
+  width: 110px;
+  text-align: center;
+}
+
+// bouton feedback
+.ghost-feedback-button {
+  cursor: pointer;
+  background: lightgrey;
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
+  text-align: center;
+  color: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: #FBBE3E;
+  }
+}
+
+.feedback-icon {
+  width: 16px;
+}
+
+// colonne de droite
+.right {
+  background: #FFFFFF;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+// bouton play/pause
+.right .ghost-play-button {
+  background: lightgrey;
+  border: none;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+
+.right .pause-button {
+  background: #FBBE3E;
+  border: none;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+
+// centrage de l'image du bouton play
+.play-part {
+  margin-left: 5px;
+}
+
+// images du bouton play/pause
+.button-pictures {
+  width: 40px;
+  height: 40px;
+}
+
+// bouton feedback
+.right .ghost-end-task-button {
+  background: lightgrey;
+  border: none;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  color: #fafafa;
+}
+
+.buttons-play-pause-stop {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.ghost-current-overlay {
+  filter: grayscale(80%);
+  pointer-events: none;
+}

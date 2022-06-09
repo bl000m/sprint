@@ -6,13 +6,14 @@
 }
 
 .new-project-form-wrapper {
-  margin-top: 10vh;
-  border: 2px solid black;
+  margin-top: 3vh;
+  background: #FFFF;
+  box-shadow: 1px 1px 1px 1px rgb(202, 202, 202);
   display: flex;
   justify-content: center;
   align-items: center;
   width: 600px;
-  height: 400px;
+  height: 450px;
   border-radius: 10Px;
 }
 
@@ -35,6 +36,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-weight: bold;
 }
 
 .project-form-btn input {
@@ -48,4 +50,9 @@ form {
   &:hover {
     background: #FBBE3E;
   }
+}
+
+select {
+  width: 220px;
+  height: 30px;
 }

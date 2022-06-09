@@ -1,7 +1,7 @@
     <div class="row ghost-current-overlay">
       <div class="column left">
 
-        <div class="current-task-heading-content">
+        <div class="ghost-current-task-heading-content">
           <h2>No current task</h2>
             <p>
               <span>Description:</span>
@@ -12,23 +12,22 @@
 
         <div class="time-details">
 
-          <div class="text-field">
+          <div class="ghost-text-field">
             <p>Session time:</p>
-            <div class="timer-display" >
-
+            <div class="ghost-timer-display" >
                   <span>--:--:--</span>
             </div>
           </div>
           <%# #todo jeudi %>
-          <div class="text-field">
+          <div class="ghost-text-field">
             <p>Total time:</p>
-            <div class="total-time">
+            <div class="ghost-total-time">
               <span>--:--:--</span>
             </div>
           </div>
-          <div class="text-field">
+          <div class="ghost-text-field">
             <p>estimated time:</p>
-            <div class="total-estimated-time">
+            <div class="ghost-total-estimated-time">
               <span>--:--:--</span>
             </div>
           </div>
@@ -42,17 +41,17 @@
       <div class="column right">
         <div class="buttons-play-pause-stop">
 
-            <button class="play-button" >
+            <button class="ghost-play-button" >
               <%= image_tag "play-64.png", class: "button-pictures play-part" %>
             </button>
 
 
-          <button class="end-task-button" >
+          <button class="ghost-end-task-button" >
             <%= image_tag "stop.png", class: "button-pictures" %>
           </button>
         </div>
 
-        <div class="feedback-button">
+        <div class="ghost-feedback-button">
           <span data-action="click->form-modal#openModal">Add feedback <%= image_tag "comments-32.png", class: "feedback-icon"%></span>
         </div>
 
