@@ -10,9 +10,29 @@
   flex-direction: column;
   align-items: center;
 }
+.def-title {
+  padding-top: 60px;
+  display: flex;
+  flex-direction: row;
+}
+.welcome {
+  font-size: 90px;
+  padding-top: 0;
+  color: #0869a1;
+}
+.welcome span {
+  font-size: 90px;
+  color: #FBBE3E;
+}
 
-.home-title {
-  padding-top: 80px;
+.sprint-title {
+  font-size: 90px;
+}
+
+.tag-line {
+  font-size: 28px;
+  color: black;
+  font-style: italic;
 }
 
 .heading-container {

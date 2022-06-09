@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
     if @review.save
 
 
-      redirect_to task_path(@task)
+      redirect_to tasks_path(@task)
 
     else
       render "reviews/show"
@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
   end
 
   def post_trello_comment
-    url = URI("https://api.trello.com/1/cards/629728b2f5cce82bc011d3fa/actions/comments")
+    url = URI("https://api.trello.com/1/cards/#{task.trello_id}/actions/comments")
     data = {
       key: ENV['TRELLO_API_KEY'],
       token: current_user.token,
