@@ -48,18 +48,6 @@ class ProjectsController < ApplicationController
     @trello_custom_fields = data.map { |element| element.slice('name', 'id')}
   end
 
-  # def getTrelloEstimatedTime
-  #   url_board_custom_fields = "https://api.trello.com/1/boards/#{trello_board_id}/customFields?key=#{ENV['TRELLO_API_KEY']}&token=#{user.token}"
-  #   json = URI.open(url_board_custom_fields).read
-  #   data = JSON.parse(json)
-  #   board_estimated_item = data.find { |item| item.where(name: "estimated time") }
-  #   trello_estimated_id = board_estimated_item['id']
-  #   url_card_custom_fields = "https://api.trello.com/1/cards/#{params[:card_id]}/customFieldItems?key=#{ENV['TRELLO_API_KEY']}&token=#{current_user.token}"
-  #   json = URI.open(url_card_custom_fields).read
-  #   data = JSON.parse(json)
-  #   card_estimated_item = data.find { |fields| fields.where(idCustomField: trello_estimated_id) }
-  #   trello_estimated_time = minutes_to_hms(card_estimated_item['value']['number'])
-  # end
 
   # def getTrelloRealTime
   #   url_board_custom_fields = "https://api.trello.com/1/boards/#{trello_board_id}/customFields?key=#{ENV['TRELLO_API_KEY']}&token=#{user.token}"
@@ -74,8 +62,7 @@ class ProjectsController < ApplicationController
   #   trello_real_time = minutes_to_hms(ard_real_item['value']['number'])
   # end
 
-  # || ?
-  # VV ?
+ #TODO jeudi
   def sendRealTimeToTrello
   end
 
