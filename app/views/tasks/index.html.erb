@@ -16,6 +16,8 @@
         <div  data-tasks-target="currentMission">
           <% if mission %>
             <%= render 'missions/current', mission: mission %>
+          <% else %>
+            <%= render 'shared/ghost_current' %>
           <% end %>
         </div>
       </div>
