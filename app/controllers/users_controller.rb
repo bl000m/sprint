@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     @token = res.token
     @secret = res.secret
     current_user.update(token: @token, secret: @secret, trello_id: trello_user_id)
-    redirect_to root_path
+    redirect_to new_project_path
   end
 
   private

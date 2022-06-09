@@ -1,10 +1,4 @@
-<div data-controller="form-modal">
-  <!--div overlay-->
-  <div data-form-modal-target="overlay"></div>
-  <!--fin div overlay-->
-
-
-<div class="container" data-controller="tasks">
+<div class="container" data-controller="tasks" data-controller="formModal">
   <%# <% #unless current_user.missions.last.task.done %>
     <% mission = (current_user.current_mission || current_user.missions.last) %>
   <%# <% end %>
@@ -17,44 +11,32 @@
     </div>
   </div>
 
+  <h1>To do list</h1>
+  <div class="card-container">
+    <div class="cards-list-container">
+      <% @tasks.each do |task| %>
+        <%= render 'shared/task_item', task: task %>
+        <%#= render 'shared/task_card', task: task%>
+      <% end %>
+    </div>
+  </div>
 
-
-      <h1>Current task</h1>
-      <div class="current-task-container">
-        <div class="current-task-infos">
-          <%= render 'missions/current', mission: mission %>
-        </div>
-
-        <% if mission %>
-          <div class="feedback-form-container" data-form-modal-target="formFeedback">
-            <%= render "shared/feedback_form", review: @review, task: current_user.missions.last.task %>
-          </div>
+  <h1>Done tasks</h1>
+  <div class="done-tasks-container">
+    <div class="done-tasks-list" data-tasks-target="doneItems">
+      <div class="cards-list-container">
+        <% @done_tasks.each do |task| %>
+          <%= render 'shared/task_item', task: task %>
+          <%#= render 'shared/task_card', task: task%>
         <% end %>
       </div>
-
-      <h1>To do list</h1>
-      <div class="card-container">
-        <div class="cards-list-container">
-          <% @tasks.each do |task| %>
-            <%= render 'shared/task_item', task: task %>
-            <%#= render 'shared/task_card', task: task%>
-          <% end %>
-        </div>
-      </div>
-
-      <h1>Done tasks</h1>
-      <div class="done-tasks-container">
-        <div class="done-tasks-list" data-tasks-target="doneItems">
-          <div class="cards-list-container">
-            <% @tasks.each do |task| %>
-              <%= render 'shared/task_item', task: task %>
-              <%#= render 'shared/task_card', task: task%>
-            <% end %>
-          </div>
-        </div>
-      </div>
-
-
-
+    </div>
   </div>
+
+  <% if mission %>
+    <div class="feedback-form-container" data-form-modal-target="formModal">
+      <%= render "shared/feedback_form", review: @review, task: current_user.missions.last.task %>
+    </div>
+  <% end %>
+
 </div>

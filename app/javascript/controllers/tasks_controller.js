@@ -3,6 +3,9 @@ import { csrfToken } from "@rails/ujs";
 
 export default class extends Controller {
   static targets = [ "currentMission", "doneItems" ]
+  static values = {
+    realTime: Number
+  }
 
 
   pause() {

@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.user = current_user
     @project.save!
-    redirect_to root_url
+    redirect_to tasks_url
   end
 
   def new_boards
