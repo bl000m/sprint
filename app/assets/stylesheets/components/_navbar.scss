@@ -33,3 +33,28 @@ nav {
 .text-decoration {
   text-decoration: none !important;
 }
+
+.nav-menu {
+  background: #84DFFC;
+  width: 120px;
+  height: 40px;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+
+  &:hover {
+    background: #FBBE3E;
+  }
+}
+
+.project-btn-text {
+  color: #fafafa;
+  text-decoration: none;
+
+  &:hover {
+    color: #fafafa;
+  }
+}

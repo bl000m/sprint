@@ -17,8 +17,8 @@
         <%= f.select :trello_done_list_id, trello_lists.map {|v| [v['name'], v['id']]} %>
       </div>
 
-      <div class="form-time">
-        <p>Choose your custom field who contains estimated duration</p>
+      <div class="form-input">
+        <p>Choose estimated duration</p>
         <%= f.select :trello_field_estimated_time_id, trello_custom_fields.map {|v| [v['name'], v['id']]} %>
       </div>
 
